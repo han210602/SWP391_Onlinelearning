@@ -8,6 +8,6 @@ package dao;
  *
  * @author Admin
  */
-public class CategoryDAO {
+public class CategoryDAO{
     
 }
