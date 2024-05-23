@@ -36,14 +36,14 @@
 	<![endif]-->
 	
 	<!-- All PLUGINS CSS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/assets.css">
-	<link rel="stylesheet" type="text/css" href="admin/assets/vendors/calendar/fullcalendar.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/assets.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/vendors/calendar/fullcalendar.css">
 	
 	<!-- TYPOGRAPHY ============================================= -->
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/typography.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/typography.css">
 	
 	<!-- SHORTCODES ============================================= -->
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/shortcodes/shortcodes.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/shortcodes/shortcodes.css">
 	
 	<!-- STYLESHEETS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="admin/assets/css/style.css">
