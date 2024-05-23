@@ -22,7 +22,7 @@
 	
 	<!-- FAVICONS ICON ============================================= -->
 	<link rel="icon" href="../error-404.html" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="admin/assets/images/favicon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="assetsAdmin/images/favicon.png" />
 	
 	<!-- PAGE TITLE HERE ============================================= -->
 	<title>EduChamp : Education HTML Template </title>
@@ -36,19 +36,19 @@
 	<![endif]-->
 	
 	<!-- All PLUGINS CSS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/assets.css">
-	<link rel="stylesheet" type="text/css" href="admin/assets/vendors/calendar/fullcalendar.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/assets.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/vendors/calendar/fullcalendar.css">
 	
 	<!-- TYPOGRAPHY ============================================= -->
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/typography.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/typography.css">
 	
 	<!-- SHORTCODES ============================================= -->
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/shortcodes/shortcodes.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/shortcodes/shortcodes.css">
 	
 	<!-- STYLESHEETS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/dashboard.css">
-	<link class="skin" rel="stylesheet" type="text/css" href="admin/assets/css/color/color-1.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/dashboard.css">
+	<link class="skin" rel="stylesheet" type="text/css" href="assetsAdmin/css/color/color-1.css">
 	
 </head>
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">

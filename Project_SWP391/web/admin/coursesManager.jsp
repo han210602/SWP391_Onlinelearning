@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="dao.CourseDAO"%>
+<%@page import="model.Course"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -265,7 +266,7 @@
 		            </li>
 					<li>
                                             <li>
-						<a href="courses.html" class="ttr-material-button">
+						<a href="teachermanager?index=1" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-book"></i></span>
                                                         <span class="ttr-label">Teacher Manager</span>
                                                 </a>
