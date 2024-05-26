@@ -189,20 +189,21 @@ public class TeacherDAO extends DBContext {
                  + " city = ?, state = ?, active = ? WHERE teacher_id = ?";
           try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, Integer.parseInt(t.getId()));
-            st.setString(2, t.getUsername());
-            st.setString(3, t.getPass());
-            st.setString(4, t.getName());
-            st.setBoolean(5, Boolean.parseBoolean(t.getGender()));
-            st.setString(6, t.getEmail());
-            st.setString(7, t.getPhone());
-            st.setString(8, t.getAddress());
-            st.setString(9, t.getSubject());
-            st.setString(10, t.getImgUrl());
-            st.setString(11, t.getJoin_date());
-            st.setString(12, t.getCity());
-            st.setString(13, t.getState());
-            st.setString(14, t.getActive());
+           // st.setInt(1, Integer.parseInt(t.getId()));
+            st.setString(1, t.getUsername());
+            st.setString(2, t.getPass());
+            st.setString(3, t.getName());
+            st.setBoolean(4, Boolean.parseBoolean(t.getGender()));
+            st.setString(5, t.getEmail());
+            st.setString(6, t.getPhone());
+            st.setString(7, t.getAddress());
+            st.setString(8, t.getSubject());
+            st.setString(9, t.getImgUrl());
+            st.setString(10, t.getJoin_date());
+            st.setString(11, t.getCity());
+            st.setString(12, t.getState());
+            st.setString(13, t.getActive());
+            st.setString(14, t.getId());
 
             st.executeUpdate();
 

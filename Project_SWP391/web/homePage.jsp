@@ -278,7 +278,7 @@
 								data-paddingright="[0,0,0,0]"
 								data-paddingbottom="[0,0,0,0]"
 								data-paddingleft="[0,0,0,0]"
-								style="z-index: 5;background-color:rgba(2, 0, 11, 0.80);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>	
+								style="z-index: 5;background-color:rgba(243,111,33);border-color:rgba(13,177,75);border-width:0px;"> </div>	
 							<!-- LAYER NR. 2 -->
 							<div class="tp-caption Newspaper-Title   tp-resizeme" 
 								id="slide-100-layer-2" 
