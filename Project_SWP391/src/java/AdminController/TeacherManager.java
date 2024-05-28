@@ -12,7 +12,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import model.Course;
 import model.Teachers;
 
 /**
@@ -63,16 +62,40 @@ public class TeacherManager extends HttpServlet {
         TeacherDAO teacher = new TeacherDAO();
         ArrayList<Teachers> data = new ArrayList<>();
         int count = 0;
-        data= teacher.getListTeachers(Integer.parseInt(request.getParameter("index")));
+//        data= teacher.getListTeachers(Integer.parseInt(request.getParameter("index")));
         count = teacher.getTotal();
         
         
+        String pageSize_raw=request.getParameter("pageSize");
         
+        int pageSize =0;
+        if(pageSize_raw ==null){
+            pageSize =2;
+        }else{
+            pageSize=Integer.parseInt(pageSize_raw);
+        }
+        
+        
+        
+        String pageIndex_raw=request.getParameter("pageIndex");
+        
+        int pageIndex =0;
+        if(pageIndex_raw ==null){
+            pageIndex =1;
+        }else{
+            pageIndex=Integer.parseInt(pageIndex_raw);
+        }
+        
+        
+        
+                
 
-        int endPage = count / 3;
-        if (count % 3 != 0) {
+        int endPage = count / pageSize;
+        if (count % pageSize != 0) {
             endPage++;
         }
+        data=teacher.getListTeachers(pageIndex,pageSize);
+        request.setAttribute("pageSize",pageSize);
 
         request.setAttribute("endPage", endPage);
         request.setAttribute("data", data);

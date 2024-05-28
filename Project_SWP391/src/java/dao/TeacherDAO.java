@@ -213,4 +213,43 @@ public class TeacherDAO extends DBContext {
 
     }
 
+    public ArrayList<Teachers> getListTeachers(int pageIndex, int pageSize) {
+        ArrayList<Teachers> data = new ArrayList<>();
+        String sql = "select*from Teachers "
+                + "order by teacher_id "
+                + "OFFSET ? ROWS\n"
+                + "FETCH NEXT ? ROWS ONLY";
+        System.out.println(pageSize);
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, (pageIndex - 1) * pageSize);
+            st.setInt(2, pageSize);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                String id = String.valueOf(rs.getInt(1));
+                String username = rs.getString(2);
+                String pass = rs.getString(3);
+                String name = rs.getString(4);
+                String gender = String.valueOf(rs.getInt(5));
+                String email = rs.getString(6);
+                String phone = rs.getString(7);
+                String address = rs.getString(8);
+                String subject = rs.getString(9);
+                String imgUrl = rs.getString(10);
+                String join_date = rs.getString(11);
+                String city = rs.getString(12);
+                String state = rs.getString(13);
+                String active = String.valueOf(rs.getBoolean(14));
+
+                data.add(new Teachers(id, username, pass, name, gender, email, phone, address, subject, imgUrl, join_date, city, state, active));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+        
+
+    }
+
 }

@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="dao.TeacherDAO"%>
@@ -266,7 +266,7 @@
                         </li>
                         <li>
                         <li>
-                            <a href="teachermanager?index=1" class="ttr-material-button">
+                            <a href="teachermanager?pageIndex=1" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-book"></i></span>
                                 <span class="ttr-label">Teacher Manager</span>
                             </a>
@@ -373,6 +373,30 @@
                                 <hr>
 
                             </div>
+                            <script>
+                                function change() {
+                                    document.getElementById("frc").submit();
+                                }
+                            </script>
+
+                            <form action="teachermanager" method="Get" id="frc">
+                                <select name="pageSize" onchange="change()" >
+                                    <c:choose>
+                                        <c:when test="${pageSize eq '2'}" >
+                                            <option value="2" selected="">2</option>
+                                            <option value="4">4</option>
+
+                                        </c:when>
+                                         <c:when test="${pageSize eq '4'}" >
+                                            <option value="2">2</option>
+                                            <option value="4" selected="">4</option>
+
+                                        </c:when>
+                                    </c:choose>
+                                   
+                                </select>
+
+                            </form>
 
 
                             <div class="widget-inner">
@@ -455,7 +479,7 @@
 
 
                                 <c:forEach begin="1" end="${endPage}" var="i">
-                                    <a href="teachermanager?index=${i}" class="btn green radius-xl outline">${i} </a>
+                                            <a href="teachermanager?pageIndex=${i}&pageSize=${pageSize}" class="btn green radius-xl outline">${i} </a>   
 
                                 </c:forEach>
 
@@ -499,7 +523,7 @@
         <script src="assetsAdmin/vendors/masonry/masonry.js"></script>
         <script src="assetsAdmin/vendors/masonry/filter.js"></script>
         <script src="assetsAdmin/vendors/owl-carousel/owl.carousel.js"></script>
-        <script src='assetsAdmin/vendors/scroll/scrollbar.min.js'></script>
+        <script src='assetsAdmin/vendors/scroll/scrollbar.min.js'></script> 
         <script src="assetsAdmin/js/functions.js"></script>
         <script src="assetsAdmin/vendors/chart/chart.min.js"></script>
         <script src="assetsAdmin/js/admin.js"></script>

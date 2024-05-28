@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="dao.TeacherDAO"%>
@@ -356,7 +356,7 @@
                             <div class="wc-title">
                                 <h4>Teacher Profile</h4>
                             </div>
-                           
+
                             <div class="widget-inner">
                                 <c:set var="t" value="${requestScope.teacher}"/>
                                 <form action="teacherupdate" method="post" class="edit-profile m-b30">
@@ -414,72 +414,94 @@
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="col-form-label">ImgUrl</label>
-                              
-                                            <div>
-                                                <img src="${t.getImgUrl()}" alt="alt"/><br>
-                                                
-                                                <input class="form-control" type="text" name="imgUrl" value="${t.getImgUrl()}"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Join Date</label>
-                                            <div>
-                                                <input class="form-control" type="datetime" name="join_date" value="${t.getJoin_date()}"/>
-                                            </div>
-                                        </div>
 
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">City</label>
                                             <div>
-                                                <input class="form-control" type="text" name="city" value="${t.getCity()}"/>
-                                            </div>
-                                        </div>
+                                                <img id="previewImg" src="${t.getImgUrl()}" alt="alt" /><br>
 
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">State</label>
-                                            <div>
-                                                <input class="form-control" type="text" name="state" value="${t.getState()}"/>
+                                                <input class="form-control" type="text" name="imgUrl" value="${t.getImgUrl()}" /><br>
+
+                                                <input class="form-control" type="file" id="imgFileInput" accept="image/*" /><br>
                                             </div>
 
-                                        </div>
+                                            <script>
+                                                document.getElementById('imgFileInput').addEventListener('change', function (event) {
+                                                    const file = event.target.files[0];
+                                                    if (file) {
+                                                        const reader = new FileReader();
+                                                        reader.onload = function (e) {
+                                                            document.getElementById('previewImg').src = e.target.result;
+                                                            document.querySelector('input[name="imgUrl"]').value = e.target.result;
+                                                        };
+                                                        reader.readAsDataURL(file);
+                                                    }
+                                                });
+                                            </script>   
 
-                                        <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+                                            <!--                                            <div>
+                                                                                            <img src="${t.getImgUrl()}" alt="alt"/><br>
+                                                                                            
+                                                                                            <input class="form-control" type="text" name="imgUrl" value="${t.getImgUrl()}"/>
+                                                                                        </div>
+                                                                                    </div>-->
+                                            <div class="form-group col-6">
+                                                <label class="col-form-label">Join Date</label>
+                                                <div>
+                                                    <input class="form-control" type="datetime" name="join_date" value="${t.getJoin_date()}"/>
+                                                </div>
+                                            </div>
 
-                                        <div class="col-12 m-t20">
-                                            <div class="ml-auto">
-                                                <h3 class="m-form__section">3. Information</h3>
+                                            <div class="form-group col-6">
+                                                <label class="col-form-label">City</label>
+                                                <div>
+                                                    <input class="form-control" type="text" name="city" value="${t.getCity()}"/>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Name</label>
-                                            <div>
-                                                <input class="form-control" type="text" name="name" value="${t.getName()}"/>
+                                            <div class="form-group col-6">
+                                                <label class="col-form-label">State</label>
+                                                <div>
+                                                    <input class="form-control" type="text" name="state" value="${t.getState()}"/>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+
+                                            <div class="col-12 m-t20">
+                                                <div class="ml-auto">
+                                                    <h3 class="m-form__section">3. Information</h3>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-6">
+                                                <label class="col-form-label">Name</label>
+                                                <div>
+                                                    <input class="form-control" type="text" name="name" value="${t.getName()}"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label class="col-form-label">Gender</label>
+                                                <div>
+                                                    <input class="form-control" type="text" name="gender" value="${t.getGender()}"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label class="col-form-label">Email</label>
+                                                <div>
+                                                    <input class="form-control" type="text" name="email" value="${t.getEmail()}"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label class="col-form-label">Phone</label>
+                                                <div>
+                                                    <input class="form-control" type="text" name="phone" value="${t.getPhone()}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" value="update" class="btn">Save changes</button>
+                                                <a href="teachermanager?index=1" type="reset" class="btn-secondry">Cancel</a>
                                             </div>
                                         </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Gender</label>
-                                            <div>
-                                                <input class="form-control" type="text" name="gender" value="${t.getGender()}"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Email</label>
-                                            <div>
-                                                <input class="form-control" type="text" name="email" value="${t.getEmail()}"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Phone</label>
-                                            <div>
-                                                <input class="form-control" type="text" name="phone" value="${t.getPhone()}"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="submit" value="update" class="btn">Save changes</button>
-                                            <button type="reset" class="btn-secondry">Cancel</button>
-                                        </div>
-                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -509,22 +531,22 @@
         <script src="assetsAdmin/js/admin.js"></script>
         <script src='assetsAdmin/vendors/switcher/switcher.js'></script>
         <script>
-        // Pricing add
-            function newMenuItem() {
-                var newElem = $('tr.list-item').first().clone();
-                newElem.find('input').val('');
-                newElem.appendTo('table#item-add');
-            }
-            if ($("table#item-add").is('*')) {
-                $('.add-item').on('click', function (e) {
-                    e.preventDefault();
-                    newMenuItem();
-                });
-                $(document).on("click", "#item-add .delete", function (e) {
-                    e.preventDefault();
-                    $(this).parent().parent().parent().parent().remove();
-                });
-            }
+    // Pricing add
+    function newMenuItem() {
+        var newElem = $('tr.list-item').first().clone();
+        newElem.find('input').val('');
+        newElem.appendTo('table#item-add');
+    }
+    if ($("table#item-add").is('*')) {
+        $('.add-item').on('click', function (e) {
+            e.preventDefault();
+            newMenuItem();
+        });
+        $(document).on("click", "#item-add .delete", function (e) {
+            e.preventDefault();
+            $(this).parent().parent().parent().parent().remove();
+        });
+    }
         </script>
     </body>
 
