@@ -99,7 +99,7 @@ public class TeacherUpdate extends HttpServlet {
         Teachers t = new Teachers(id, username, pass, name, gender, email, phone, address, subject, imgUrl, join_date, city, state, active);
         tNew.Update(t);
        
-       response.sendRedirect("teachermanager?index=1");
+       response.sendRedirect("teachermanager?pageIndex=1");
 
         //request.getRequestDispatcher("teachermanager?index=1").forward(request, response);
 

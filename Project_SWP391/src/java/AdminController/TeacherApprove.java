@@ -66,7 +66,7 @@ public class TeacherApprove extends HttpServlet {
            teacher.deleteTeacher(id);
 
         }
-        request.getRequestDispatcher("teachermanager?index=1").forward(request, response);
+        request.getRequestDispatcher("teachermanager?pageIndex=1").forward(request, response);
         
         
     } 
