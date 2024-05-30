@@ -87,7 +87,7 @@
                 <div class="container clearfix">
 					<!-- Header Logo ==== -->
 					<div class="menu-logo">
-						<a href="index.html"><img src="assets/images/logo-white.png" alt=""></a>
+                                            <a href="homepage"><img src="assets/images/logo-white.png" alt=""></a>
 					</div>
 					<!-- Mobile Nav Button ==== -->
                     <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,11 +121,8 @@
 							<a href="index.html"><img src="assets/images/logo.png" alt=""></a>
 						</div>
                         <ul class="nav navbar-nav">	
-							<li class="active"><a href="javascript:;">Home <i class="fa fa-chevron-down"></i></a>
-								<ul class="sub-menu">
-									<li><a href="index.html">Home 1</a></li>
-									<li><a href="index-2.html">Home 2</a></li>
-								</ul>
+                            <li class="active"><a href="homepage">Home </a>
+								
 							</li>
 							<li><a href="javascript:;">Pages <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
@@ -176,7 +173,7 @@
 									</li>
 								</ul>
 							</li>
-							<li><a href="javascript:;">Blog <i class="fa fa-chevron-down"></i></a>
+<!--							<li><a href="javascript:;">Blog <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
 									<li><a href="blog-classic-grid.html">Blog Classic</a></li>
 									<li><a href="blog-classic-sidebar.html">Blog Classic Sidebar</a></li>
@@ -184,8 +181,8 @@
 									<li><a href="blog-standard-sidebar.html">Blog Standard Sidebar</a></li>
 									<li><a href="blog-details.html">Blog Details</a></li>
 								</ul>
-							</li>
-							<li class="nav-dashboard"><a href="javascript:;">Dashboard <i class="fa fa-chevron-down"></i></a>
+							</li>-->
+<!--							<li class="nav-dashboard"><a href="javascript:;">Dashboard <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
 									<li><a href="admin/index.html">Dashboard</a></li>
 									<li><a href="admin/add-listing.html">Add Listing</a></li>
@@ -208,13 +205,13 @@
 										</ul>
 									</li>
 								</ul>
-							</li>
+							</li>-->
 						</ul>
-						<div class="nav-social-link">
+<!--						<div class="nav-social-link">
 							<a href="javascript:;"><i class="fa fa-facebook"></i></a>
 							<a href="javascript:;"><i class="fa fa-google-plus"></i></a>
 							<a href="javascript:;"><i class="fa fa-linkedin"></i></a>
-						</div>
+						</div>-->
                     </div>
 					<!-- Navigation Menu END ==== -->
                 </div>
@@ -278,7 +275,7 @@
 								data-paddingright="[0,0,0,0]"
 								data-paddingbottom="[0,0,0,0]"
 								data-paddingleft="[0,0,0,0]"
-								style="z-index: 5;background-color:rgba(2, 0, 11, 0.80);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>	
+								style="z-index: 5;background-color:rgb(243 111 33 / 67%);border-color:rgba(13,177,75);border-width:0px;"> </div>	
 							<!-- LAYER NR. 2 -->
 							<div class="tp-caption Newspaper-Title   tp-resizeme" 
 								id="slide-100-layer-2" 

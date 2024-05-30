@@ -1029,7 +1029,7 @@
 }
 .header-transparent .is-fixed .menu-bar{
 	position:fixed;
-	background-color:rgba(0,0,0,0.9);
+	background-color: #0db14b;
 }
 .header-transparent .top-bar{
 	background-color: rgba(0,0,0,0);

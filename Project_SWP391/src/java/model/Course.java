@@ -5,13 +5,34 @@
 package model;
 
 import dao.DBContext;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
  * @author admin
  */
-public class Course {
+public class Course extends DBContext{
     String id,title,description,price,duration,isActive,imgUrl,cateId,adId,rate,nameTeacher,nameCate,discount;
+    Connection cnn;//ket noi
+    Statement stm;//thuc thi cau lenh sql
+    ResultSet rs;//luu tru du lieu va xu li
+    PreparedStatement pstm;//thuc thi cau lenh sql
+    
+        private void connect(){
+        cnn=connection;
+        if(cnn!=null){
+            System.out.println("Connect success");
+        }else{
+            System.out.println("Connect Fail");
+        }
+    }
+
+    public Course() {
+    }
+        
 
     public Course(String id, String title, String description, String price, String duration, String isActive, String imgUrl, String cateId, String adId, String rate) {
         this.id = id;
@@ -24,6 +45,7 @@ public class Course {
         this.cateId = cateId;
         this.adId = adId;
         this.rate = rate;
+                connect();
     }
 
     public Course(String id, String title, String description, String price, String duration, String isActive, String imgUrl, String cateId, String adId, String rate, String nameTeacher, String nameCate, String discount) {
@@ -40,6 +62,7 @@ public class Course {
         this.nameTeacher = nameTeacher;
         this.nameCate = nameCate;
         this.discount = discount;
+                connect();
     }
 
     public String getNameTeacher() {

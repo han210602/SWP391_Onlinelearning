@@ -52,6 +52,22 @@
         <servlet-name>ResetPassword</servlet-name>
         <servlet-class>LoginController.ResetPassword</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TeacherManager</servlet-name>
+        <servlet-class>AdminController.TeacherManager</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TeacherApprove</servlet-name>
+        <servlet-class>AdminController.TeacherApprove</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TeacherADD</servlet-name>
+        <servlet-class>AdminController.TeacherADD</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TeacherUpdate</servlet-name>
+        <servlet-class>AdminController.TeacherUpdate</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -103,6 +119,22 @@
     <servlet-mapping>
         <servlet-name>ResetPassword</servlet-name>
         <url-pattern>/resetpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherManager</servlet-name>
+        <url-pattern>/teachermanager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherApprove</servlet-name>
+        <url-pattern>/teacherapprove</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherADD</servlet-name>
+        <url-pattern>/teacheradd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherUpdate</servlet-name>
+        <url-pattern>/teacherupdate</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
