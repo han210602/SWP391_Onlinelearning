@@ -153,6 +153,33 @@ public class Administrator extends DBContext{
         }
         return null;
     }
+
+    public int checkEmailReturnID(String email) {
+        try {
+            String strSelect = "select * from Administrator where email='"+email+"'";
+                    
+            pstm=cnn.prepareStatement(strSelect);
+            
+            rs=pstm.executeQuery();
+            while (rs.next()) {
+              return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            System.out.println("CheckEmailAC:"+e.getMessage());
+        }
+        return 0;
+    }
+
+    public void updatePass(String toSHA1,int id) {
+         try{    String strUpdate="update Administrator "
+                    + "set password='"+toSHA1+"' " 
+                    +"where administrator_id ="+id+"";
+            pstm=cnn.prepareStatement(strUpdate);
+            pstm.execute();
+        }catch(Exception e){
+            System.out.println("Update:"+e.getMessage());
+        }
+    }
     
   
 }

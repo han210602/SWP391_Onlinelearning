@@ -13,13 +13,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.security.MessageDigest;
 import java.util.Base64;
+import model.Administrator;
 import model.Customer;
 
 /**
  *
  * @author admin
  */
-public class RegisterController extends HttpServlet {
+public class ResetPassword extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,10 +37,10 @@ public class RegisterController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegisterController</title>");  
+            out.println("<title>Servlet ResetPassword</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RegisterController at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet ResetPassword at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,8 +57,7 @@ public class RegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-                 request.getRequestDispatcher("register.jsp").forward(request, response);
-
+        processRequest(request, response);
     } 
 
     /** 
@@ -70,21 +70,30 @@ public class RegisterController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String username=request.getParameter("username");
-        String email=request.getParameter("email");
-        String pass=request.getParameter("pass");
-        Customer customer=new Customer(username, toSHA1(pass), email);
-        if(customer.checkUsername(username)){
-        customer.registerCustomer();
+        String id=request.getParameter("id");
+        String pass=request.getParameter("password");
+        String repass=request.getParameter("confPassword");
+        if(pass.equals(repass)){
+           if(request.getParameter("type").equals("admin")){
+               Administrator a=new Administrator();
+               a.updatePass(toSHA1(pass),Integer.parseInt(id));
+           }else{
+               Customer c=new Customer();
+            c.updatePass(toSHA1(pass),Integer.parseInt(id));
         request.getRequestDispatcher("login.jsp").forward(request, response);
+
+           } 
+           
         }else{
-            request.setAttribute("msg", "UserName exist.");
-        request.getRequestDispatcher("register.jsp").forward(request, response);
-
+        request.setAttribute("email", request.getParameter("email"));
+        request.setAttribute("type", request.getParameter("type"));
+        request.setAttribute("id",id );
+        request.setAttribute("msg", "ConfirmPassword Error");
+        request.getRequestDispatcher("newPassword.jsp").forward(request, response);
         }
-
+        
     }
-    public String toSHA1(String str){
+ public String toSHA1(String str){
         String salt="asdfghjkl;";
         String result=null;
         str+=salt;

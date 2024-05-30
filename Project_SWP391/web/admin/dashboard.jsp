@@ -22,7 +22,7 @@
 	
 	<!-- FAVICONS ICON ============================================= -->
 	<link rel="icon" href="../error-404.html" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="admin/assets/images/favicon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="assetsAdmin/images/favicon.png" />
 	
 	<!-- PAGE TITLE HERE ============================================= -->
 	<title>EduChamp : Education HTML Template </title>
@@ -46,9 +46,9 @@
 	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/shortcodes/shortcodes.css">
 	
 	<!-- STYLESHEETS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/dashboard.css">
-	<link class="skin" rel="stylesheet" type="text/css" href="admin/assets/css/color/color-1.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assetsAdmin/css/dashboard.css">
+	<link class="skin" rel="stylesheet" type="text/css" href="assetsAdmin/css/color/color-1.css">
 	
 </head>
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">
@@ -254,7 +254,7 @@
 		                </a>
 		            </li>
 					<li>
-						<a href="coursesmanager" class="ttr-material-button">
+						<a href="coursesmanager?pageIndex=1" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-book"></i></span>
 		                	<span class="ttr-label">Courses</span>
 		                </a>

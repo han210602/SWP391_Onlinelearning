@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
 
 	<!-- META ============================================= -->
@@ -59,47 +58,31 @@
 		<div class="account-form-inner">
 			<div class="account-container">
 				<div class="heading-bx left">
-					<h2 class="title-head">Login to your <span>Account</span></h2>
-					<p>Don't have an account? <a href="register.jsp">Create one here</a></p>
+					<h2 class="title-head">Forget <span>Password</span></h2>
+					<p>Login Your Account <a href="login">Click here</a></p>
 				</div>	
-                            <form class="contact-bx" action="login" method="post" >
+                            <form class="contact-bx" action="forgetpassword" method="post">
 					<div class="row placeani">
 						<div class="col-lg-12">
 							<div class="form-group">
 								<div class="input-group">
-									<label>Username</label>
-									<input name="username" type="text" required="" class="form-control">
+									<label>Your Email Address</label>
+									<input name="email" type="email" required="" class="form-control">
 								</div>
-							</div>
-						</div>
-						<div class="col-lg-12">
-							<div class="form-group">
-								<div class="input-group"> 
-									<label>Password</label>
-									<input name="password" type="password" class="form-control" required="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-12">
-							<div class="form-group form-forget">
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-									<label class="custom-control-label" for="customControlAutosizing">Remember me</label>
-								</div>
-								<a href="forgetpassword" class="ml-auto">Forgot Password?</a>
+                                                              <%
+        
+                                                                                String msg="";
+                                                                                if(request.getAttribute("msg")!=null){
+        
+                                                                                msg=(String)request.getAttribute("msg");
+                                                                                }
+       
+                                                                        %>
+                                                                        <text style="color: red"><%=msg%></text>
 							</div>
 						</div>
 						<div class="col-lg-12 m-b30">
-							<button name="submit" type="submit" value="Submit" class="btn button-md">Login</button>
-						</div>
-						<div class="col-lg-12">
-							<h6>Login with Social media</h6>
-							<div class="d-flex">
-								<a class="btn flex-fill m-r5 facebook" 
-                                                                   href="https://www.facebook.com/v19.0/dialog/oauth?client_id=814874080550783&redirect_uri=http://localhost:9999/Project_SWP391/loginfacebook"
-                                                                   ><i class="fa fa-facebook"></i>Facebook</a>
-								<a class="btn flex-fill m-l5 google-plus" href="#"><i class="fa fa-google-plus"></i>Google Plus</a>
-							</div>
+							<button name="submit" type="submit" value="Submit" class="btn button-md">Submit</button>
 						</div>
 					</div>
 				</form>

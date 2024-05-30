@@ -5,6 +5,7 @@
 
 package AdminController;
 
+import dao.CategoryDAO;
 import dao.CourseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +13,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import model.Course;
 
 /**
  *
@@ -54,12 +57,65 @@ public class CoursesManager extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-            
-        
-            
-            
             CourseDAO course=new CourseDAO();
-            request.setAttribute("data", course.getListCourses());
+            CategoryDAO category=new CategoryDAO();
+            ArrayList<Course>data=new ArrayList<>();
+            int pageSize=3;
+            int count=0;
+            if(request.getParameter("cate")!=null){
+                                request.setAttribute("cate", request.getParameter("cate"));
+
+                if(request.getParameter("cate").equals("0")){
+                count=course.getTotalCourse();
+                data=course.getListCourses(Integer.parseInt(request.getParameter("pageIndex")), pageSize);  
+                }else{
+                int pageIndex=Integer.parseInt(request.getParameter("pageIndex"));
+                int cateid=Integer.parseInt(request.getParameter("cate"));
+                count=course.getTotalCourseByCate(cateid);
+                System.out.println(count);
+                data=course.getListCourseByCate(cateid,pageIndex,pageSize);
+                 System.out.println(data.size());
+                }
+            }else if(request.getParameter("approve")!=null){
+                request.setAttribute("approve", request.getParameter("approve"));
+                if(request.getParameter("approve").equals("2")){
+                count=course.getTotalCourse();
+                System.out.println("s"+count);
+                data=course.getListCourses(Integer.parseInt(request.getParameter("pageIndex")), pageSize); 
+                }else{
+                int pageIndex=Integer.parseInt(request.getParameter("pageIndex"));
+                int approve=Integer.parseInt(request.getParameter("approve"));
+                count=course.getTotalCourseByActive(approve);
+                data=course.getListCourseByActive(approve,pageIndex,pageSize);
+                }
+            
+            }else if(request.getParameter("btnSearch")!=null){
+                if(request.getParameter("search").equals("")){
+                    count=course.getTotalCourse();
+                data=course.getListCourses(Integer.parseInt(request.getParameter("pageIndex")), pageSize);
+                }else{
+                int pageIndex=Integer.parseInt(request.getParameter("pageIndex"));
+                String search=request.getParameter("search");
+                count=course.getTotalCourseBySearch(search);
+                                    request.setAttribute("search", search);
+
+                data=course.getListCourseBySearch(search,pageIndex,pageSize); 
+                }
+            }
+            else{
+                count=course.getTotalCourse();
+                data=course.getListCourses(Integer.parseInt(request.getParameter("pageIndex")), pageSize);
+            }
+            
+            int endPage=count/pageSize;
+            if(count%pageSize!=0){
+                endPage++;
+            }
+            System.out.println(endPage);
+           // course.getListCourses(Integer.parseInt(request.getParameter("pageIndex")),pageSize)
+            request.setAttribute("endPage", endPage);
+            request.setAttribute("listCate", category.getListCategory());
+            request.setAttribute("data", data);
             request.getRequestDispatcher("admin/coursesManager.jsp").forward(request, response);
     } 
 
@@ -84,5 +140,9 @@ public class CoursesManager extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private int getTotalCourseByCate(int cateid) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

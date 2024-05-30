@@ -11,6 +11,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.security.MessageDigest;
+import java.util.Base64;
 import model.Customer;
 import model.Administrator;
 
@@ -55,8 +57,8 @@ public class LoginController extends HttpServlet {
     throws ServletException, IOException {
        String username=request.getParameter("username");
        String password=request.getParameter("password");
-        Administrator u =new Administrator(username, password);
-        Customer c=new Customer(username, password);
+        Administrator u =new Administrator(username, toSHA1(password));
+        Customer c=new Customer(username, toSHA1(password));
         if(u.checkAdministrator()!=null){
         
             if(u.checkAdministrator().getRoles_id().equals("1")){
@@ -80,10 +82,18 @@ public class LoginController extends HttpServlet {
 
         
     }
+ public String toSHA1(String str){
+        String salt="asdfghjkl;";
+        String result=null;
+        str+=salt;
+        try{
+            byte[] dataBytes=str.getBytes("UTF-8");
+            MessageDigest md=MessageDigest.getInstance("SHA-1");
+            result=Base64.getEncoder().encodeToString(md.digest(dataBytes));
+        }catch(Exception e){
+            
+        }
+        return result;
+    }
 
-    /** 
-     * Returns a short description of the servlet.
-     * @return a String containing servlet description
-     */
- 
 }

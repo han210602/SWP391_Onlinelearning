@@ -31,6 +31,7 @@ public class Customer extends DBContext{
         }
     }
     public Customer() {
+        connect();
     }
     
     public Customer(String username, String pass) {
@@ -148,6 +149,21 @@ public class Customer extends DBContext{
         }
         return true;
     }
+    public boolean checkUserFacebook(String idf){
+        try {
+            String strSelect = "select * from Customer where idf="+idf+"";
+                    
+            pstm=cnn.prepareStatement(strSelect);
+            
+            rs=pstm.executeQuery();
+            while (rs.next()) {
+              return false;
+            }
+        } catch (Exception e) {
+            System.out.println("CheckUsernameFail:"+e.getMessage());
+        }
+        return true;
+    }
     public void registerCustomer() {
         try{
             String strAdd=
@@ -202,7 +218,7 @@ public class Customer extends DBContext{
             stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             rs = stm.executeQuery(strSelect);
             while (rs.next()) {
-               String id=String.valueOf(rs.getInt(1));
+                String id=String.valueOf(rs.getInt(1));
                 String email=rs.getString(5);
                 String fname=rs.getString(4);
                 String gender="Femail";
@@ -219,5 +235,50 @@ public class Customer extends DBContext{
             System.out.println("getListUser:"+e.getMessage());
         }
         return data;
+    }
+
+    public void RegisteFacebook(String id, String name, String email) {
+    try{
+            String strAdd=
+                    "insert into Customer (fullname,email,idF ) values(?,?,?)";
+           
+            pstm=cnn.prepareStatement(strAdd);
+            pstm.setString(1, name);
+            pstm.setString(2,email);
+            pstm.setString(3, id);
+        
+            pstm.execute();
+        } catch(Exception e){
+            System.out.println("register fail:"+e.getMessage());
+
+       }
+    
+    }
+
+    public int checkEmailReturnID(String email) {
+         try {
+            String strSelect = "select * from Customer where email='"+email+"'";
+                    
+            pstm=cnn.prepareStatement(strSelect);
+            
+            rs=pstm.executeQuery();
+            while (rs.next()) {
+              return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            System.out.println("CheckEmail:"+e.getMessage());
+        }
+        return 0;
+    }
+
+    public void updatePass(String toSHA1,int id) {
+         try{    String strUpdate="update Customer "
+                    + "set password='"+toSHA1+"' " 
+                    +"where customer_id="+id+"";
+            pstm=cnn.prepareStatement(strUpdate);
+            pstm.execute();
+        }catch(Exception e){
+            System.out.println("Update:"+e.getMessage());
+        }
     }
 }

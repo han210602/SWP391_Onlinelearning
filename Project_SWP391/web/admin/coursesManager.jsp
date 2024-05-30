@@ -364,12 +364,96 @@
 				</ul>
 			</div>	
 			<div class="row">
+                            
 				<!-- Your Profile Views Chart -->
 				<div class="col-lg-12 m-b30">
 					<div class="widget-box">
 						<div class="wc-title">
 							<h4>Course</h4>
 						</div>
+                                            
+                                                    <div class="row">
+                                                    <div class="form-group col-6" >
+                                                        <label class="col-form-label">Category</label>
+                                                        <div>
+                                                            <script>
+                                                function changecate() {
+                                                document.getElementById("fr").submit();
+                                                }
+                                            </script>
+                                            <form id="fr" onchange="changecate()" action="coursesmanager" method="get">
+                                                <select name="cate">
+                                                    <option value="0">All Course</option>
+                                                    <c:forEach items="${listCate}" var="c">
+                                                        <c:choose>
+                                                            <c:when test="${c.getId() eq cate}">
+                                                                <option value="${c.getId()}" selected="">${c.getName()}</option>
+
+                                                            </c:when>
+                                                                   <c:otherwise>
+                                                            <option value="${c.getId()}">${c.getName()}</option>
+                                                        </c:otherwise>
+                                                        </c:choose>
+                                                     
+                                                    </c:forEach>
+                                                </select>
+                                                <input type="text" name="pageIndex" value="1" hidden="">
+                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <script>
+                                                    function change() {
+                                                 document.getElementById("frc").submit();
+                                                    }
+                                                    </script>
+                                               
+                                                    <div class="form-group col-6" >
+                                                        <label class="col-form-label">Approve</label>
+                                                        <div>
+                                                <form id="frc" onchange="change()" action="coursesmanager" method="get">
+                                                    <select name="approve" class="form-control">
+                                                    <c:choose>
+                                                        <c:when test="${approve eq '1'}">
+                                                    <option value="2">All Course</option>
+
+                                                    <option value="1" selected="">Pending</option>
+                                                    <option value="0">Pended</option>
+
+                                                        </c:when>
+                                                                              <c:when test="${approve eq '0'}">
+                                                    <option value="2">All Course</option>
+
+                                                    <option value="1">Pending</option>
+                                                    <option value="0" selected="">Pended</option>
+
+                                                
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <option value="2" selected="">All Course</option>
+
+                                                    <option value="1">Pending</option>
+                                                    <option value="0">Pended</option>
+
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    </select>
+                                                <input type="text" name="pageIndex" value="1" hidden="">
+                                            </form>
+                                                            </div>
+                                                      </div>
+                                                    </div>
+                                                    <form action="coursesmanager" method="get">
+                                                        <div class="row">
+                                                        <div class="form-group col-6">
+                                                        <input type="text" class="form-control" name="search" value="${search}">
+                                                        <input type="text" class="form-control" name="pageIndex" value="1" hidden="">
+
+                                                        </div>
+                                                        <div class="form-group col-6">
+                                                        <input type="submit" name="btnSearch" class="btn green radius-xl outline" value="search">
+                                                        </div>
+                                                        </div>
+                                                    </form>
 						<div class="widget-inner">
                                                     <c:forEach items="${data}" var="c">
 							<div class="card-courses-list admin-courses">
@@ -393,7 +477,7 @@
 											</li>
 											<li class="card-courses-categories">
 												<h5>Categories</h5>
-												<h4>Backend</h4>
+												<h4>${c.getNameCate()}</h4>
 											</li>
 											<li class="card-courses-review">
 												<h5>3 Review</h5>
@@ -408,9 +492,14 @@
                                                                                         <c:choose>
                                                                                             <c:when test="${c.getIsActive() eq 'true'}">
                                                                                                 <li class="card-courses-stats">
-												<a href="#" class="btn button-sm red radius-xl">Pending</a>
-											</li>
+												<a href="#" class="btn button-sm green radius-xl">Pending</a>
+                                                                                                </li>
                                                                                             </c:when>
+                                                                                            <c:otherwise>
+                                                                                                <li class="card-courses-stats">
+												<a href="#" class="btn button-sm red radius-xl">Pending</a>
+                                                                                                </li>
+                                                                                            </c:otherwise>
                                                                                         </c:choose>
 											
 											<li class="card-courses-price">
@@ -425,16 +514,42 @@
 											<p>${c.getDescription()}</p>	
 										</div>
 										<div class="col-md-12">
-											<a href="coursesmanager?mod=1&id=${c.id}" class="btn green radius-xl outline">Approve</a>
-											<a href="#" class="btn red outline radius-xl ">Cancel</a>
-										</div>
+											<a href="approvecourse?mod=1&id=${c.id}" class="btn green radius-xl outline">Approve</a>
+											<a href="approvecourse?mod=0&id=${c.id}" class="btn red outline radius-xl ">Cancel</a>
+											<a href="approvecourer?mod=2&id=${c.id}" class="btn red outline radius-xl ">Delete</a>
+</div>
+                                                                                
 									</div>
 									
 								</div>
 							</div>
                                                     </c:forEach>
-   
+                                                    <c:choose>
+                                                    <c:when test="${cate != null}">
+                                                    <c:forEach begin="1" end="${endPage}" var="i">
+                                                        <a href="coursesmanager?pageIndex=${i}&cate=${cate}" class="btn green radius-xl outline">${i}</a>
+                                                    </c:forEach>
+                                                    </c:when>
+                                                        <c:when test="${approve != null}">
+                                                    <c:forEach begin="1" end="${endPage}" var="i">
+                                                        <a href="coursesmanager?pageIndex=${i}&approve=${approve}" class="btn green radius-xl outline">${i}</a>
+                                                    </c:forEach>
+                                                    </c:when>
+                                                         <c:when test="${search != null}">
+                                                    <c:forEach begin="1" end="${endPage}" var="i">
+                                                        <a href="coursesmanager?pageIndex=${i}&search=${search}" class="btn green radius-xl outline">${i}</a>
+                                                    </c:forEach>
+                                                    </c:when>
+                                                        <c:otherwise>
+                                                         <c:forEach begin="1" end="${endPage}" var="i">
+                                                        <a href="coursesmanager?pageIndex=${i}" class="btn green radius-xl outline">${i}</a>
+                                                    </c:forEach>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    
+                                                    
 						</div>
+                                                   
 					</div>
 				</div>
 				<!-- Your Profile Views Chart END-->
