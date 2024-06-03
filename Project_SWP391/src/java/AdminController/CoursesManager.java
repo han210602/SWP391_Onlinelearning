@@ -97,8 +97,7 @@ public class CoursesManager extends HttpServlet {
                 int pageIndex=Integer.parseInt(request.getParameter("pageIndex"));
                 String search=request.getParameter("search");
                 count=course.getTotalCourseBySearch(search);
-                                    request.setAttribute("search", search);
-
+                request.setAttribute("search", search);
                 data=course.getListCourseBySearch(search,pageIndex,pageSize); 
                 }
             }

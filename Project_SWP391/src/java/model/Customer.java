@@ -39,6 +39,14 @@ public class Customer extends DBContext{
         this.pass = pass;
         connect();
     }
+
+    public Customer(String username, String pass, String email, String phone) {
+        this.username = username;
+        this.pass = pass;
+        this.email = email;
+        this.phone = phone;
+        connect();
+    }
     
     public Customer(String username, String pass, String email) {
         this.username = username;
@@ -167,12 +175,14 @@ public class Customer extends DBContext{
     public void registerCustomer() {
         try{
             String strAdd=
-                    "insert into Customer (username,password,email ) values(?,?,?)";
+                    "insert into Customer (username,password,email,phone ) values(?,?,?,?)";
            
             pstm=cnn.prepareStatement(strAdd);
             pstm.setString(1, username);
             pstm.setString(2,pass);
             pstm.setString(3, email);
+           pstm.setString(4, phone);
+
         
             pstm.execute();
         } catch(Exception e){

@@ -72,7 +72,13 @@ public class TeacherManager extends HttpServlet {
         if(pageSize_raw ==null){
             pageSize =2;
         }else{
+            if(request.getParameter("pageSize").equals("0")){
+                
+            }
+            else{
             pageSize=Integer.parseInt(pageSize_raw);
+
+            }
         }
         
         

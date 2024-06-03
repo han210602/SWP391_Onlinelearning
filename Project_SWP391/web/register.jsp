@@ -97,6 +97,14 @@
 								</div>
 							</div>
 						</div>
+                                                                <div class="col-lg-12">
+							<div class="form-group">
+								<div class="input-group">
+									<label>Your Phone</label>
+									<input name="phone" type="text" required="" class="form-control">
+								</div>
+							</div>
+						</div>
 						
 						<div class="col-lg-12 m-b30">
 							<button name="submit" type="submit" value="Submit" class="btn button-md">Sign Up</button>
