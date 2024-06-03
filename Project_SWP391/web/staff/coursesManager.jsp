@@ -252,20 +252,20 @@
 			<!-- sidebar menu start -->
 			 <nav class="ttr-sidebar-navi">
                     <ul>
-                        <li>
+<!--                        <li>
                             <a href="dashboard" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-home"></i></span>
                                 <span class="ttr-label">Dashborad</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
-                            <a href="coursesmanager?pageIndex=1" class="ttr-material-button">
+                            <a href="shomepage?pageIndex=1" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-book"></i></span>
                                 <span class="ttr-label">Courses Manager</span>
                             </a>
                         </li>
                         <li>
-                        <li>
+<!--                        <li>
                             <a href="teachermanager?pageIndex=1" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-book"></i></span>
                                 <span class="ttr-label">Teacher Manager</span>
@@ -324,26 +324,26 @@
                                 <span class="ttr-label">Review</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="add-listing.html" class="ttr-material-button">
+-->                        <li>
+                            <a href="staffaddcourse" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
                                 <span class="ttr-label">Add listing</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="ttr-material-button">
+                            <a href="staffprofile" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-user"></i></span>
                                 <span class="ttr-label">My Profile</span>
-                                <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+<!--                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>-->
                             </a>
-                            <ul>
+<!--                            <ul>
                                 <li>
                                     <a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
                                 </li>
                                 <li>
                                     <a href="teacher-profile.html" class="ttr-material-button"><span class="ttr-label">Teacher Profile</span></a>
                                 </li>
-                            </ul>
+                            </ul>-->
                         </li>
                         <li class="ttr-seperate"></li>
                     </ul>
@@ -358,10 +358,10 @@
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Courses</h4>
+				<h4 class="breadcrumb-title">My Course</h4>
 				<ul class="db-breadcrumb-list">
 					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-					<li>Courses</li>
+					<li>My Courses</li>
 				</ul>
 			</div>	
 			<div class="row">
@@ -377,12 +377,12 @@
                                                     <div class="form-group col-6" >
                                                         <label class="col-form-label">Category</label>
                                                         <div>
-                                                            <script>
+                                            <script>
                                                 function changecate() {
                                                 document.getElementById("fr").submit();
                                                 }
                                             </script>
-                                            <form id="fr" onchange="changecate()" action="coursesmanager" method="get">
+                                            <form id="fr" onchange="changecate()" action="shomepage" method="get">
                                                 <select name="cate">
                                                     <option value="0">All Course</option>
                                                     <c:forEach items="${listCate}" var="c">
@@ -411,7 +411,7 @@
                                                     <div class="form-group col-6" >
                                                         <label class="col-form-label">Approve</label>
                                                         <div>
-                                                <form id="frc" onchange="change()" action="coursesmanager" method="get">
+                                                <form id="frc" onchange="change()" action="shomepage" method="get">
                                                     <select name="approve" class="form-control">
                                                     <c:choose>
                                                         <c:when test="${approve eq '1'}">
@@ -443,7 +443,7 @@
                                                             </div>
                                                       </div>
                                                     </div>
-                                                    <form action="coursesmanager" method="get">
+                                                    <form action="shomepage" method="get">
                                                         <div class="row">
                                                         <div class="form-group col-6">
                                                         <input type="text" class="form-control" name="search" value="${search}">
@@ -473,7 +473,7 @@
 												</div>
 												<div class="card-courses-user-info">
 													<h5>Teacher</h5>
-													<h4>?</h4>
+													<h4>${c.getNameTeacher()}</h4>
 												</div>
 											</li>
 											<li class="card-courses-categories">
@@ -504,8 +504,8 @@
                                                                                         </c:choose>
 											
 											<li class="card-courses-price">
-												<del>$190</del>
-												<h5 class="text-primary">${c.getPrice()*c.getPrice()}</h5>
+												<del>$${c.getPrice()}</del>
+												<h5 class="text-primary">$${c.getPrice()*c.getDiscount()}</h5>
 											</li>
 										</ul>
 									</div>
@@ -515,8 +515,7 @@
 											<p>${c.getDescription()}</p>	
 										</div>
 										<div class="col-md-12">
-											<a href="approvecourse?mod=1&id=${c.id}" class="btn green radius-xl outline">Approve</a>
-											<a href="approvecourse?mod=0&id=${c.id}" class="btn red outline radius-xl ">Cancel</a>
+											<a href="approvecourse?mod=1&id=${c.id}" class="btn green radius-xl outline">Edit</a>
 											<a href="approvecourer?mod=2&id=${c.id}" class="btn red outline radius-xl ">Delete</a>
 </div>
                                                                                 
@@ -528,22 +527,22 @@
                                                     <c:choose>
                                                     <c:when test="${cate != null}">
                                                     <c:forEach begin="1" end="${endPage}" var="i">
-                                                        <a href="coursesmanager?pageIndex=${i}&cate=${cate}" class="btn green radius-xl outline">${i}</a>
+                                                        <a href="shomepage?pageIndex=${i}&cate=${cate}" class="btn green radius-xl outline">${i}</a>
                                                     </c:forEach>
                                                     </c:when>
                                                         <c:when test="${approve != null}">
                                                     <c:forEach begin="1" end="${endPage}" var="i">
-                                                        <a href="coursesmanager?pageIndex=${i}&approve=${approve}" class="btn green radius-xl outline">${i}</a>
+                                                        <a href="shomepage?pageIndex=${i}&approve=${approve}" class="btn green radius-xl outline">${i}</a>
                                                     </c:forEach>
                                                     </c:when>
                                                          <c:when test="${search != null}">
                                                     <c:forEach begin="1" end="${endPage}" var="i">
-                                                        <a href="coursesmanager?pageIndex=${i}&search=${search}" class="btn green radius-xl outline">${i}</a>
+                                                        <a href="shomepage?pageIndex=${i}&search=${search}" class="btn green radius-xl outline">${i}</a>
                                                     </c:forEach>
                                                     </c:when>
                                                         <c:otherwise>
                                                          <c:forEach begin="1" end="${endPage}" var="i">
-                                                        <a href="coursesmanager?pageIndex=${i}" class="btn green radius-xl outline">${i}</a>
+                                                        <a href="shomepage?pageIndex=${i}" class="btn green radius-xl outline">${i}</a>
                                                     </c:forEach>
                                                         </c:otherwise>
                                                     </c:choose>

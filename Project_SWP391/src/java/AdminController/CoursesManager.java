@@ -13,7 +13,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import model.Administrator;
 import model.Course;
 
 /**
@@ -57,6 +59,10 @@ public class CoursesManager extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+           HttpSession session=request.getSession();
+            if(session.getAttribute("username")!=null&&session.getAttribute("role").equals("admin")){
+             
+             
             CourseDAO course=new CourseDAO();
             CategoryDAO category=new CategoryDAO();
             ArrayList<Course>data=new ArrayList<>();
@@ -116,6 +122,14 @@ public class CoursesManager extends HttpServlet {
             request.setAttribute("listCate", category.getListCategory());
             request.setAttribute("data", data);
             request.getRequestDispatcher("admin/coursesManager.jsp").forward(request, response);
+             
+             
+             
+         }else{
+                request.getRequestDispatcher("pleaseLogin.jsp").forward(request, response);
+
+         }
+            
     } 
 
     /** 

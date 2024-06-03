@@ -72,6 +72,14 @@
         <servlet-name>SHomePage</servlet-name>
         <servlet-class>StaffController.SHomePage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffProfile</servlet-name>
+        <servlet-class>StaffController.StaffProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffAddCourse</servlet-name>
+        <servlet-class>StaffController.StaffAddCourse</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -143,6 +151,14 @@
     <servlet-mapping>
         <servlet-name>SHomePage</servlet-name>
         <url-pattern>/shomepage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffProfile</servlet-name>
+        <url-pattern>/staffprofile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffAddCourse</servlet-name>
+        <url-pattern>/staffaddcourse</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
