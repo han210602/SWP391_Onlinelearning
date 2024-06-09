@@ -8,18 +8,18 @@ import dao.StaffDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
 import model.Administrator;
-import model.Customer;
 
 /**
  *
  * @author admin
  */
-public class DashboardController extends HttpServlet {
+@WebServlet(name = "CreateStaff", urlPatterns = {"/createStaff"})
+public class CreateStaff extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +38,10 @@ public class DashboardController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DashboardController</title>");
+            out.println("<title>Servlet CreateStaff</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DashboardController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CreateStaff at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,11 +59,8 @@ public class DashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                request.getRequestDispatcher("admin/dashboard.jsp").forward(request, response);
-
-
+        request.getRequestDispatcher("admin/CreateStaff.jsp").forward(request, response);
     }
-    
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -76,7 +73,24 @@ public class DashboardController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String username=request.getParameter("username");
+        String pass=request.getParameter("pass");
+        String email=request.getParameter("email");
+        String fullname=request.getParameter("fullname");
+        String gender=request.getParameter("gender");
+        String address=request.getParameter("address");
+        String imgUrl=request.getParameter("imgUrl");
+        Administrator a=new Administrator();
+        a.setUsername(username);
+        a.setPass(pass);
+        a.setFullname(fullname);
+        a.setGender(gender);
+        a.setRoles_id("2");
+        a.setAddress(address);
+        a.setImgUrl(imgUrl);
+        StaffDAO sd=new StaffDAO();
+        sd.insertStaff(a);
+        response.sendRedirect("manageStaffAccounts");
     }
 
     /**

@@ -8,18 +8,19 @@ import dao.StaffDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Administrator;
-import model.Customer;
 
 /**
  *
  * @author admin
  */
-public class DashboardController extends HttpServlet {
+@WebServlet(name = "manageStaffAccounts", urlPatterns = {"/manageStaffAccounts"})
+public class manageStaffAccounts extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +39,10 @@ public class DashboardController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DashboardController</title>");
+            out.println("<title>Servlet manageStaffAccounts</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DashboardController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet manageStaffAccounts at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,11 +60,27 @@ public class DashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                request.getRequestDispatcher("admin/dashboard.jsp").forward(request, response);
+        StaffDAO cd = new StaffDAO();
+        List<Administrator> cList = cd.getAll();
+         int page = 1;
+        int recordsPerPage = 6;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        int start = (page - 1) * recordsPerPage;
+        int end = Math.min(start + recordsPerPage, cList.size());
 
+        List<Administrator> list = cList.subList(start, end);
 
+        int noOfRecords = cList.size();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        
+       
+        request.setAttribute("data", list);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        request.getRequestDispatcher("admin/manageStaffAccounts.jsp").forward(request, response);
     }
-    
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -76,7 +93,7 @@ public class DashboardController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        processRequest(request, response);
     }
 
     /**
