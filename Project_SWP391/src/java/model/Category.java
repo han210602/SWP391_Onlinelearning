@@ -9,22 +9,23 @@ package model;
  * @author admin
  */
 public class Category {
-    String id,name,description;
+    int id;
+    String name,description;
 
     public Category() {
     }
 
-    public Category(String id, String name, String description) {
+    public Category(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

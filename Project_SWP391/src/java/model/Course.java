@@ -15,22 +15,25 @@ import java.sql.Statement;
  * @author admin
  */
 public class Course extends DBContext{
-    String id,title,description,price,duration,isActive,imgUrl,cateId,adId,rate,nameTeacher,nameCate,discount;
-    Connection cnn;//ket noi
-    Statement stm;//thuc thi cau lenh sql
-    ResultSet rs;//luu tru du lieu va xu li
-    PreparedStatement pstm;//thuc thi cau lenh sql
-    
-        private void connect(){
-        cnn=connection;
-        if(cnn!=null){
-            System.out.println("Connect success");
-        }else{
-            System.out.println("Connect Fail");
-        }
+    String id,title,description,price,duration,isActive,imgUrl,cateId,adId,rate,nameTeacher,nameCate,discount,start,idcate,idteacher;
+ 
+    public Course() {
     }
 
-    public Course() {
+    public String getIdcate() {
+        return idcate;
+    }
+
+    public void setIdcate(String idcate) {
+        this.idcate = idcate;
+    }
+
+    public String getIdteacher() {
+        return idteacher;
+    }
+
+    public void setIdteacher(String idteacher) {
+        this.idteacher = idteacher;
     }
         
 
@@ -45,7 +48,6 @@ public class Course extends DBContext{
         this.cateId = cateId;
         this.adId = adId;
         this.rate = rate;
-                connect();
     }
 
     public Course(String id, String title, String description, String price, String duration, String isActive, String imgUrl, String cateId, String adId, String rate, String nameTeacher, String nameCate, String discount) {
@@ -62,8 +64,26 @@ public class Course extends DBContext{
         this.nameTeacher = nameTeacher;
         this.nameCate = nameCate;
         this.discount = discount;
-                connect();
     }
+
+    public Course(String id, String title, String description, String price, String duration, String isActive, String imgUrl, String cateId, String adId, String rate, String nameTeacher, String nameCate, String discount, String start,  String idteacher) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.duration = duration;
+        this.isActive = isActive;
+        this.imgUrl = imgUrl;
+        this.cateId = cateId;
+        this.adId = adId;
+        this.rate = rate;
+        this.nameTeacher = nameTeacher;
+        this.nameCate = nameCate;
+        this.discount = discount;
+        this.start = start;
+        this.idteacher = idteacher;
+    }
+ 
 
     public String getNameTeacher() {
         return nameTeacher;
@@ -123,6 +143,14 @@ public class Course extends DBContext{
 
     public String getDuration() {
         return duration;
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
     }
 
     public void setDuration(String duration) {

@@ -1,10 +1,9 @@
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<!DOCTYPE html>
 <html lang="en">
 
-    <!-- Mirrored from educhamp.themetrades.com/demo/admin/teacher-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:11:35 GMT -->
+    <!-- Mirrored from educhamp.themetrades.com/demo/admin/add-listing.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:09:05 GMT -->
     <head>
 
         <!-- META ============================================= -->
@@ -25,7 +24,7 @@
 
         <!-- FAVICONS ICON ============================================= -->
         <link rel="icon" href="../error-404.html" type="image/x-icon" />
-        <link rel="shortcut icon" type="image/x-icon" href="assetsAdmin/images/favicon.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
 
         <!-- PAGE TITLE HERE ============================================= -->
         <title>EduChamp : Education HTML Template </title>
@@ -51,7 +50,7 @@
         <!-- STYLESHEETS ============================================= -->
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/style.css">
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/dashboard.css">
-        <link class="skin" rel="stylesheet" type="text/css" href="assetsAdmin/css/color/color-1.css">
+        <link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
 
     </head>
     <body class="ttr-opened-sidebar ttr-pinned-sidebar">
@@ -72,6 +71,8 @@
                             <img alt="" class="ttr-logo-mobile" src="assetsAdmin/images/logo-mobile.png" width="30" height="30">
                             <img alt="" class="ttr-logo-desktop" src="assetsAdmin/images/logo-white.png" width="160" height="27">
                         </a>
+                        
+                        
                     </div>
                 </div>
                 <!--logo end -->
@@ -279,8 +280,8 @@
                                     <a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
                                 </li>
                             </ul>
-                        </li>-->
-<!--                        <li>
+                        </li>
+                        <li>
                             <a href="#" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-calendar"></i></span>
                                 <span class="ttr-label">Calendar</span>
@@ -294,14 +295,14 @@
                                     <a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">List View</span></a>
                                 </li>
                             </ul>
-                        </li>-->
-<!--                        <li>
+                        </li>
+                        <li>
                             <a href="bookmark.html" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
                                 <span class="ttr-label">Bookmarks</span>
                             </a>
-                        </li>-->
-<!--                        <li>
+                        </li>
+                        <li>
                             <a href="review.html" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-comments"></i></span>
                                 <span class="ttr-label">Review</span>
@@ -317,8 +318,9 @@
                             <a href="staffprofile" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-user"></i></span>
                                 <span class="ttr-label">My Profile</span>
+                                <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
                             </a>
-                            
+
                         </li>
                         <li class="ttr-seperate"></li>
                     </ul>
@@ -333,10 +335,10 @@
         <main class="ttr-wrapper">
             <div class="container-fluid">
                 <div class="db-breadcrumb">
-                    <h4 class="breadcrumb-title">Teacher Profile</h4>
+                    <h4 class="breadcrumb-title">Add listing</h4>
                     <ul class="db-breadcrumb-list">
                         <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-                        <li>Teacher Profile</li>
+                        <li>Add listing</li>
                     </ul>
                 </div>	
                 <div class="row">
@@ -344,177 +346,118 @@
                     <div class="col-lg-12 m-b30">
                         <div class="widget-box">
                             <div class="wc-title">
-                                <h4>Teacher Profile</h4>
+                                <h4>Add listing</h4>
                             </div>
                             <div class="widget-inner">
-                                <form class="edit-profile m-b30" action="staffprofile" method="post" enctype="multipart/form-data">
+                                <form class="edit-profile m-b30" action="staffupdatecourse" method="post" enctype="multipart/form-data">
                                     <div class="row">
-                                         <div class="seperator"></div>
-
-                                        <div class="col-12 m-t20">
-                                            <div class="ml-auto m-b5">
-                                                <h3>1.Account</h3>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Account</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="${staff.getUsername()}" name="username">
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Password</label>
-                                            <div>
-                                                <input class="form-control" type="password" value="${staff.getPass()}" name="pass">
-                                            </div>
-                                        </div>
-                                        
                                         <div class="col-12">
                                             <div class="ml-auto">
-                                                <h3>2. Personal Details</h3>
+                                                <h3>1. Basic info</h3>
                                             </div>
                                         </div>
                                         <div class="form-group col-6">
-                                            <label class="col-form-label">Full Name</label>
+                                            <label class="col-form-label">Course title</label>
                                             <div>
-                                                <input class="form-control" type="text" value="${staff.getFullname()}" name="fullname">
+                                                <input class="form-control" type="text" value="${course.getTitle()}" name="title">
+                                                <input class="form-control" type="text" value="${idc}" name="idc" hidden="">
+
                                             </div>
                                         </div>
-                                         <div class="form-group col-6">
-                                            <label class="col-form-label">Date Of Birth</label>
+                                        <div class="form-group col-6">
+                                            <label class="col-form-label">Course Category</label>
                                             <div>
-                                                <input class="form-control" type="date" value="${staff.getDob()}" name="dob">
+                                                <select name="cateid" class="form-control">
+                                                    <option value="0">Please choice course.</option>
+                                                    <c:forEach items="${listc}" var="c">
+                                                        <c:choose>
+                                                            <c:when test="${c.getId() eq course.getCateId()}">
+                                                                <option value="${c.getId()}" selected="">${c.getName()}</option>
+
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <option value="${c.getId()}">${c.getName()}</option>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </c:forEach>
+                                                </select>
                                             </div>
                                         </div>
-                                         <div class="form-group col-6">
-                                            <label class="col-form-label">Gender</label>
+                                        <div class="form-group col-6">
+                                            <label class="col-form-label">Course Start</label>
                                             <div>
-                                                <!--<input class="form-control" type="text" value="${staff.getGender()}" name="gender">-->
-                                                <select class="form-control"  value="${staff.getGender()}" name="gender">
-                                                    <c:choose>
-                                                        <c:when test="${staff.getGender() eq 'Femail'}" >
-                                                            <option value="0" selected="">Femail</option>
-                                                            <option value="1" >Mail</option>
+                                                <input class="form-control" type="date" value="${course.getStart()}" name="start">
+                                                  
+                                            </div>
+                                        </div>
+                                   
+                                        <div class="form-group col-6">
+                                            <label class="col-form-label">Teacher Name</label>
+                                            
+                                            <div>
+                                                <select name="teacherid" class="form-control">
+                                                    <option value="0">Please choice teacher.</option>
+                                                    
+                                                    <c:forEach items="${listt}" var="c">
+                                                        <c:choose>
+                                                        <c:when test="${c.getId() eq course.getIdteacher()}">
+                                                            <option value="${c.getId()}" selected=>${c.getName()}</option>
 
                                                         </c:when>
                                                         <c:otherwise>
-                                                             <option value="0" >Femail</option>
-                                                             <option value="1" selected="">Mail</option>
-                                                        </c:otherwise>
-                                                    </c:choose>
+                                                            <option value="${c.getId()}">${c.getName()}</option>
+                                                        </c:otherwise>    
+                                                           </c:choose> 
+                                                  
+                                                     
+                                                    </c:forEach>
                                                 </select>
                                             </div>
                                         </div>
                                          <div class="form-group col-6">
-                                            <label class="col-form-label">Phone No.</label>
+                                            <label class="col-form-label">Course Price</label>
                                             <div>
-                                                <input class="form-control" type="text" value="${staff.getPhone()}" name="phone">
-                                            </div>
-                                        </div>
-                                           <div class="form-group col-6">
-                                            <label class="col-form-label">Email</label>
-                                            <div>
-                                                <input class="form-control" name="email" type="email" required="" value="${staff.getEmail()}" >
-                                            </div>
-                                        </div>
-                                          <div class="form-group col-6">
-                                            <label class="col-form-label">Image</label>
-                                            <div>
-                                                <input class="form-control" type="file" value="" name="image"/>
-                                                <input class="form-control" type="text" value="${staff.getImgUrl()}" name="imagedb" hidden=""/>
-
-                                                <image style="width: 300px" src="${staff.getImgUrl()}" alt="${staff.getImgUrl()}" />
-    </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Occupation</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="${staff.getOcc()}" name="occ">
+                                                <input class="form-control" type="text" value="${course.getPrice()}" name="price"/>
                                             </div>
                                         </div>
                                         <div class="form-group col-6">
-                                            <label class="col-form-label">Company Name</label>
+                                            <label class="col-form-label">Discount</label>
                                             <div>
-                                                <input class="form-control" type="text" value="${staff.getCompany()}" name="com">
-                                                <span class="help">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
+                                                <input class="form-control" type="text" value="${course.getDiscount()}" name="discount">
                                             </div>
                                         </div>
-                                       
+                                        <div class="form-group col-6">
+                                            <label class="col-form-label">Course Image</label>
+                                            <div>
+                                                <input class="form-control" type="file" value="" name="image">
+                                                <input class="form-control" type="text" value="${course.getImgUrl()}" name="imagedb" hidden=""/>
+                                                 <%=msg%>
+                                    <image style="width: 300px" src="${course.getImgUrl()}" alt="${staff.getImgUrl()}" />
 
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="col-form-label">Duration</label>
+                                            <div>
+                                                <input class="form-control" type="text" value="${course.getDuration()}" name="duration">
+                                            </div>
+                                        </div>
                                         <div class="seperator"></div>
 
                                         <div class="col-12 m-t20">
                                             <div class="ml-auto m-b5">
-                                                <h3>3. Address</h3>
+                                                <h3>2. Description</h3>
                                             </div>
                                         </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Address</label>
+                                        <div class="form-group col-12">
+                                            <label class="col-form-label">Course description</label>
                                             <div>
-                                                <input class="form-control" type="text" value="${staff.getAddress()}" name="add">
+                                                <textarea class="form-control" name="description" >${course.getDescription()} </textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">City</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="${staff.getCity()}" name="city"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">State</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="${staff.getState()}" name="state">
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Postcode</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="000702">
-                                            </div>
-                                        </div>
-
-                                        <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
-
-                                        <div class="col-12 m-t20">
+<!--                                        <div class="col-12 m-t20">
                                             <div class="ml-auto">
-                                                <h3 class="m-form__section">3. Social Links</h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Linkedin</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="www.linkedin.com">
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Facebook</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="www.facebook.com">
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Twitter</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="www.twitter.com">
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Instagram</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="www.instagram.com">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="btn" >Save changes</button>
-                                        </div>
-                                    </div>
-                                </form>
-<!--                                <form class="edit-profile">
-                                    <div class="row">
-                                        <div class="col-12 m-t20">
-                                            <div class="ml-auto">
-                                                <h3 class="m-form__section">4. Add Item</h3>
+                                                <h3 class="m-form__section">3. Add Item</h3>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -550,13 +493,13 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                        </div>
+                                        </div>-->
                                         <div class="col-12">
-                                            <button type="button" class="btn-secondry add-item m-r5"><i class="fa fa-fw fa-plus-circle"></i>Add Item</button>
-                                            <button type="reset" class="btn">Save changes</button>
+<!--                                            <button type="button" class="btn-secondry add-item m-r5"><i class="fa fa-fw fa-plus-circle"></i>Add Item</button>-->
+                                            <button type="submit" class="btn" >Save changes</button>
                                         </div>
                                     </div>
-                                </form>-->
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -604,5 +547,5 @@
         </script>
     </body>
 
-    <!-- Mirrored from educhamp.themetrades.com/demo/admin/teacher-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:11:35 GMT -->
+    <!-- Mirrored from educhamp.themetrades.com/demo/admin/add-listing.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:09:05 GMT -->
 </html>

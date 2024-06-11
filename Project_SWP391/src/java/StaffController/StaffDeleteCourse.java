@@ -4,28 +4,20 @@
  */
 
 package StaffController;
-import dao.CategoryDAO;
+
 import dao.CourseDAO;
-import dao.CourseStaffDao;
-import dao.TeacherDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import jakarta.servlet.http.Part;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 /**
  *
  * @author admin
  */
-@MultipartConfig
-public class StaffAddCourse extends HttpServlet {
+public class StaffDeleteCourse extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -42,10 +34,10 @@ public class StaffAddCourse extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet StaffAddCourse</title>");  
+            out.println("<title>Servlet StaffDeleteCourse</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet StaffAddCourse at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet StaffDeleteCourse at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,15 +54,10 @@ public class StaffAddCourse extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-                HttpSession session=request.getSession();
-        System.out.println(session.getAttribute("staffid"));
-                        System.out.println(session.getAttribute("role"));
+              CourseDAO course=new CourseDAO();
+              course.DeleteCourse(Integer.parseInt(request.getParameter("id")));
+               response.sendRedirect("shomepage?pageIndex=1");
 
-                    CategoryDAO cateDAO=new CategoryDAO();
-                    TeacherDAO teacherDAO=new TeacherDAO();
-                    request.setAttribute("listc", cateDAO.getListCategory());
-                    request.setAttribute("listt", teacherDAO.getListTeachers());
-                    request.getRequestDispatcher("staff/addCourse.jsp").forward(request, response);
 
     } 
 
@@ -84,31 +71,7 @@ public class StaffAddCourse extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        HttpSession session=request.getSession();
-                System.out.println(session.getAttribute("staffid"));
-                System.out.println(session.getAttribute("role"));
-
-        String title=request.getParameter("title");
-        String cateid=request.getParameter("cateid");
-        String start=request.getParameter("start");
-        String teacherid=request.getParameter("teacherid");
-        String duration=request.getParameter("duration");
-        String price=request.getParameter("price");
-        String discount=request.getParameter("discount");
-        String description=request.getParameter("description");
-        String staffid=session.getAttribute("staffid").toString();
-        Part part=request.getPart("image");
-        String mimeType = part.getContentType();
-        String realPath=request.getServletContext().getRealPath("/courseimguploads");
-        String filename=Paths.get(part.getSubmittedFileName()).getFileName().toString();
-        if(!Files.exists(Paths.get(realPath))){
-            Files.createDirectory(Paths.get(realPath));
-        }
-        part.write(realPath+"/"+filename);
-        CourseStaffDao course=new CourseStaffDao();
-        course.AddCourse(title,cateid,start,teacherid,price,discount,description,"courseimguploads/"+filename,staffid,duration);
-        response.sendRedirect("shomepage?pageIndex=1");
-
+        processRequest(request, response);
     }
 
     /** 

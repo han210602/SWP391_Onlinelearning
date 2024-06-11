@@ -182,7 +182,7 @@
 								<li><a href="user-profile.html">My profile</a></li>
 								<li><a href="list-view-calendar.html">Activity</a></li>
 								<li><a href="mailbox.html">Messages</a></li>
-								<li><a href="../login.html">Logout</a></li>
+								<li><a href="logout">Logout</a></li>
 							</ul>
 						</div>
 					</li>
@@ -515,8 +515,8 @@
 											<p>${c.getDescription()}</p>	
 										</div>
 										<div class="col-md-12">
-											<a href="approvecourse?mod=1&id=${c.id}" class="btn green radius-xl outline">Edit</a>
-											<a href="approvecourer?mod=2&id=${c.id}" class="btn red outline radius-xl ">Delete</a>
+											<a href="staffupdatecourse?id=${c.id}" class="btn green radius-xl outline">Edit</a>
+											<a href="staffdeletecourse?id=${c.id}" class="btn red outline radius-xl ">Delete</a>
 </div>
                                                                                 
 									</div>

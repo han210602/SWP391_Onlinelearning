@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="dao.CourseDAO"%>
@@ -182,7 +184,7 @@
 								<li><a href="user-profile.html">My profile</a></li>
 								<li><a href="list-view-calendar.html">Activity</a></li>
 								<li><a href="mailbox.html">Messages</a></li>
-								<li><a href="../login.html">Logout</a></li>
+								<li><a href="logout">Logout</a></li>
 							</ul>
 						</div>
 					</li>
@@ -505,7 +507,8 @@
 											
 											<li class="card-courses-price">
 												<del>$190</del>
-												<h5 class="text-primary">${c.getPrice()*c.getPrice()}</h5>
+<h5 class="text-primary"><fmt:formatNumber value="${c.getPrice() *( 1-c.getDiscount())}" type="number" maxFractionDigits="2" />
+</h5>
 											</li>
 										</ul>
 									</div>

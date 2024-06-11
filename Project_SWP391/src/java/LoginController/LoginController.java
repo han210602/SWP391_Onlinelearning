@@ -73,7 +73,6 @@ public class LoginController extends HttpServlet {
 
             }else if(u.checkAdministrator().getRoles_id().equals("2")){
             session.setAttribute("role", "staff");
-                
             session.setAttribute("staffid", u.checkAdministrator().getId());
                // request.getRequestDispatcher("staff/coursesManager.jsp").forward(request, response);
             //request.setAttribute("staff", u.getId());
@@ -84,8 +83,7 @@ public class LoginController extends HttpServlet {
  
             }
         }else if(c.checkCustomer()!=null){
-            session.setAttribute("role", "customer");
-
+        session.setAttribute("role", "customer");
         request.getRequestDispatcher("homePage.jsp").forward(request, response);
         }else{
         request.getRequestDispatcher("login.jsp").forward(request, response);

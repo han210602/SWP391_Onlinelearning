@@ -260,4 +260,70 @@ public class CourseStaffDao extends DBContext{
     
     
     }
+
+    public Course getCourseById(int id) {
+        String sql = "SELECT [course_id],[title],co.description,[price],[duration],[isActive],[imageUrl],co.category_id,co.teacher_id,[administrator_id],t.name,ca.category_name ,[discount],[rate],[startdate]\n" +
+"FROM Courses co  join Categories ca on co.category_id=ca.category_id  join Teachers t on co.teacher_id=t.teacher_id \n" +
+"where co.course_id="+id+" ";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                String id1=String.valueOf(rs.getInt(1));
+                String title=rs.getString(2);                
+                String description=rs.getString(3);
+                String price=rs.getString(4);
+                String duration=String.valueOf(rs.getInt(5));
+                String isActive=String.valueOf(rs.getBoolean(6));
+                String imageUrl=rs.getString(7);
+                String cid=rs.getString(8);
+                String tid=rs.getString(9);
+                String nameTeacher=rs.getString(11);
+                String nameCate=rs.getString(12);
+                String discount=rs.getString(13);
+                String rate=rs.getString(14);
+                String start=String.valueOf(rs.getDate(15));
+
+                return new Course(tid, title, description, price, duration, isActive, imageUrl, cid, tid, rate, nameTeacher, nameCate, discount, start, tid);
+   //Course(String id, String title, String description, String price, String duration, String isActive, String imgUrl, String cateId, String adId, String rate, String nameTeacher, String nameCate, String discount,String start)             
+     //   String id, String title, String description, String price, String duration, String isActive, String imgUrl, String cateId, String adId, String rate, String nameTeacher, String nameCate, String discount, String start, String idcate, String idteacher
+                        
+
+
+            }
+        } catch (Exception e) {
+            System.out.println("loi:"+e.getMessage());;
+        }
+        return null;
+    }
+
+    public void UpdateCourse(String id, String title, String cateid, String start, String teacherid, String price, String discount, String description, String filename, String duration) {
+    
+     try {
+            String sql = "UPDATE [dbo].[Courses]\n" +
+"SET \n" +
+"    [title] = '"+title+"',\n" +
+"    [description] = '"+description+"',\n" +
+"    [price] = "+Float.parseFloat(price)+",\n" +
+"    [duration] = "+Integer.parseInt(duration)+",\n" +
+"    [imageUrl] = '"+filename+"',\n" +
+"    [category_id] = "+Integer.parseInt(cateid)+",\n" +
+"    [teacher_id] = "+Integer.parseInt(teacherid)+",\n" +
+"    [discount] = "+Float.parseFloat(discount)+",\n" +
+"    [startdate] = '"+start+"'\n" +
+"WHERE \n" +
+
+"    [course_id] = "+Integer.parseInt(id)+"";
+            PreparedStatement pstm = connection.prepareCall(sql);
+       
+
+
+           
+            pstm.executeUpdate();
+        } catch (Exception e) {
+               System.out.println("loiadd:"+e.getMessage());
+        }
+    
+    
+    }
 }

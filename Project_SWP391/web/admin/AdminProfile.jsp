@@ -347,7 +347,7 @@
                                 <h4>Teacher Profile</h4>
                             </div>
                             <div class="widget-inner">
-                                <form class="edit-profile m-b30" action="staffprofile" method="post" enctype="multipart/form-data">
+                                <form class="edit-profile m-b30" action="adminprofile" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                          <div class="seperator"></div>
 
@@ -360,6 +360,8 @@
                                             <label class="col-form-label">Account</label>
                                             <div>
                                                 <input class="form-control" type="text" value="${staff.getUsername()}" name="username">
+                                                <input class="form-control" type="text" value="${staff.getId()}" name="id" hidden="">
+
                                             </div>
                                         </div>
                                         <div class="form-group col-6">
