@@ -381,9 +381,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="bookmark.html" class="ttr-material-button">
+                            <a href="manageStaffAccounts" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
-                                <span class="ttr-label">Bookmarks</span>
+                                <span class="ttr-label">Manage Staff Accounts</span>
                             </a>
                         </li>
                         <li>
@@ -425,7 +425,7 @@
                     <h4 class="breadcrumb-title">Dashboard</h4>
                     <ul class="db-breadcrumb-list">
                         <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-                        <li><a href="dashboard"></i>Dashboard</a></li>
+                        <li><a href="manageStaffAccounts"></i>Manage Staff Accounts</a></li>
                         <li><a href="createStaff">Create Staff</a></li>
                     </ul>
                 </div>	

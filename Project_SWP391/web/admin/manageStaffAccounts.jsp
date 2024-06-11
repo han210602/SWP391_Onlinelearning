@@ -431,10 +431,10 @@
                     </ul>
                 </div>	
                 <!-- Card -->
-                
+
                 <!-- Card END -->
                 <div class="row">
-                
+
                     <div class="col-lg-6 m-b30">
                         <div class="widget-box">
                             <span class="orders-btn">
@@ -444,10 +444,34 @@
                                 <h4>New Users</h4>
                             </div>
                             <div class="widget-inner">
+
+                                <form action="manageStaffAccounts" method="get">
+                                    <li>
+                                        <span class="orders-info">Member of page </span>&nbsp
+                                        <select name="recordsPerPage" onchange="this.form.submit()">
+                                            <option value="5" ${recordsPerPage == 5 ? 'selected' : ''}>5</option>
+                                            <option value="10" ${recordsPerPage == 10 ? 'selected' : ''}>10</option>
+                                            <option value="15" ${recordsPerPage == 15 ? 'selected' : ''}>15</option>
+                                            <option value="20" ${recordsPerPage == 20 ? 'selected' : ''}>20</option>
+                                        </select>
+                                    </li>
+                                </form>
+
+                                <!--                                <form action="manageStaffAccounts" method="get">
+                                                                    <li>
+                                                                        <span class="orders-info">Page: </span>&nbsp
+                                                                        <input type="text" name="recordsPerPage" value="${recordsPerPage}" min="1" />
+                                                                        <button type="submit" class="btn button-sm green">Enter</button>
+                                                                        </br>
+                                                                    </li>
+                                                                </form>-->
                                 <c:forEach var="c" items="${requestScope.data}">
                                     <div class="new-user-list">
+
                                         <ul>
+
                                             <li>
+
                                                 <c:if test="${c.gender == 'female'}">
                                                     <span class="new-users-pic">
                                                         <img src="ImageCourse/fermale.jpg" alt=""/>
@@ -459,7 +483,7 @@
                                                     </c:if>
 
                                                 <span class="new-users-text">
-                                                    <a href="#" class="new-users-name">${c.fullname}</a>
+                                                    <a class="new-users-name">${c.fullname}</a>
                                                     <span class="new-users-info">${c.address}</span>
                                                 </span>
                                                 <span class="new-users-btn">
@@ -470,7 +494,7 @@
                                     </div>
                                 </c:forEach>
                                 <c:if test="${currentPage > 1}">
-                                    <a href="dashboard?page=${currentPage - 1}">Previous</a>
+                                    <a href="manageStaffAccounts?page=${currentPage - 1}&recordsPerPage=${recordsPerPage}">Previous</a>
                                 </c:if>
                                 <c:forEach var="i" begin="1" end="${noOfPages}">
                                     <c:choose>
@@ -478,22 +502,22 @@
                                             ${i}
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="dashboard?page=${i}">${i}</a>
+                                            <a href="manageStaffAccounts?page=${i}&recordsPerPage=${recordsPerPage}">${i}</a>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
                                 <c:if test="${currentPage < noOfPages}">
-                                    <a href="dashboard?page=${currentPage + 1}">Next</a>
+                                    <a href="manageStaffAccounts?page=${currentPage + 1}&recordsPerPage=${recordsPerPage}">Next</a>
                                 </c:if>
                             </div>
                             <div>
-                                
+
                             </div>
                         </div>
 
                     </div>
 
-                    
+
 
                 </div>
             </div>
@@ -521,82 +545,82 @@
         <script src='assetsAdmin/vendors/calendar/fullcalendar.js'></script>
         <script src='assetsAdmin/vendors/switcher/switcher.js'></script>
         <script>
-            $(document).ready(function () {
+                            $(document).ready(function () {
 
-                $('#calendar').fullCalendar({
-                    header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'month,agendaWeek,agendaDay,listWeek'
-                    },
-                    defaultDate: '2019-03-12',
-                    navLinks: true, // can click day/week names to navigate views
+                                $('#calendar').fullCalendar({
+                                    header: {
+                                        left: 'prev,next today',
+                                        center: 'title',
+                                        right: 'month,agendaWeek,agendaDay,listWeek'
+                                    },
+                                    defaultDate: '2019-03-12',
+                                    navLinks: true, // can click day/week names to navigate views
 
-                    weekNumbers: true,
-                    weekNumbersWithinDays: true,
-                    weekNumberCalculation: 'ISO',
+                                    weekNumbers: true,
+                                    weekNumbersWithinDays: true,
+                                    weekNumberCalculation: 'ISO',
 
-                    editable: true,
-                    eventLimit: true, // allow "more" link when too many events
-                    events: [
-                        {
-                            title: 'All Day Event',
-                            start: '2019-03-01'
-                        },
-                        {
-                            title: 'Long Event',
-                            start: '2019-03-07',
-                            end: '2019-03-10'
-                        },
-                        {
-                            id: 999,
-                            title: 'Repeating Event',
-                            start: '2019-03-09T16:00:00'
-                        },
-                        {
-                            id: 999,
-                            title: 'Repeating Event',
-                            start: '2019-03-16T16:00:00'
-                        },
-                        {
-                            title: 'Conference',
-                            start: '2019-03-11',
-                            end: '2019-03-13'
-                        },
-                        {
-                            title: 'Meeting',
-                            start: '2019-03-12T10:30:00',
-                            end: '2019-03-12T12:30:00'
-                        },
-                        {
-                            title: 'Lunch',
-                            start: '2019-03-12T12:00:00'
-                        },
-                        {
-                            title: 'Meeting',
-                            start: '2019-03-12T14:30:00'
-                        },
-                        {
-                            title: 'Happy Hour',
-                            start: '2019-03-12T17:30:00'
-                        },
-                        {
-                            title: 'Dinner',
-                            start: '2019-03-12T20:00:00'
-                        },
-                        {
-                            title: 'Birthday Party',
-                            start: '2019-03-13T07:00:00'
-                        },
-                        {
-                            title: 'Click for Google',
-                            url: 'http://google.com/',
-                            start: '2019-03-28'
-                        }
-                    ]
-                });
+                                    editable: true,
+                                    eventLimit: true, // allow "more" link when too many events
+                                    events: [
+                                        {
+                                            title: 'All Day Event',
+                                            start: '2019-03-01'
+                                        },
+                                        {
+                                            title: 'Long Event',
+                                            start: '2019-03-07',
+                                            end: '2019-03-10'
+                                        },
+                                        {
+                                            id: 999,
+                                            title: 'Repeating Event',
+                                            start: '2019-03-09T16:00:00'
+                                        },
+                                        {
+                                            id: 999,
+                                            title: 'Repeating Event',
+                                            start: '2019-03-16T16:00:00'
+                                        },
+                                        {
+                                            title: 'Conference',
+                                            start: '2019-03-11',
+                                            end: '2019-03-13'
+                                        },
+                                        {
+                                            title: 'Meeting',
+                                            start: '2019-03-12T10:30:00',
+                                            end: '2019-03-12T12:30:00'
+                                        },
+                                        {
+                                            title: 'Lunch',
+                                            start: '2019-03-12T12:00:00'
+                                        },
+                                        {
+                                            title: 'Meeting',
+                                            start: '2019-03-12T14:30:00'
+                                        },
+                                        {
+                                            title: 'Happy Hour',
+                                            start: '2019-03-12T17:30:00'
+                                        },
+                                        {
+                                            title: 'Dinner',
+                                            start: '2019-03-12T20:00:00'
+                                        },
+                                        {
+                                            title: 'Birthday Party',
+                                            start: '2019-03-13T07:00:00'
+                                        },
+                                        {
+                                            title: 'Click for Google',
+                                            url: 'http://google.com/',
+                                            start: '2019-03-28'
+                                        }
+                                    ]
+                                });
 
-            });
+                            });
 
         </script>
     </body>
