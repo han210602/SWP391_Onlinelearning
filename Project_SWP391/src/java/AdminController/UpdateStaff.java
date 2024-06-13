@@ -11,15 +11,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
 import model.Administrator;
-import model.Customer;
 
 /**
  *
  * @author admin
  */
-public class DashboardController extends HttpServlet {
+public class UpdateStaff extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +36,10 @@ public class DashboardController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DashboardController</title>");
+            out.println("<title>Servlet UpdateStaff</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DashboardController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UpdateStaff at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,11 +57,13 @@ public class DashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                request.getRequestDispatcher("admin/dashboard.jsp").forward(request, response);
-
-
+        StaffDAO sd = new StaffDAO();
+        String id = request.getParameter("id");
+        Administrator a = sd.getById(Integer.parseInt(id));
+        request.setAttribute("a", a);
+        request.setAttribute("id", id);
+        request.getRequestDispatcher("admin/updateStaff.jsp").forward(request, response);
     }
-    
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -76,7 +76,27 @@ public class DashboardController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String id_raw = request.getParameter("id");
+        String username = request.getParameter("username");
+        String pass = request.getParameter("pass");
+        String email = request.getParameter("email");
+        String fullname = request.getParameter("fullname");
+        String gender_raw = request.getParameter("gender");
+        String address = request.getParameter("address");
+        String roles_id_raw = request.getParameter("roles_id");
+        String imgUrl = request.getParameter("imgUrl");
+        Administrator a = new Administrator(id_raw, username, pass, email, fullname, gender_raw, address, roles_id_raw, imgUrl);
+        StaffDAO sd = new StaffDAO();
+        int id;
+        try {
+            id = Integer.parseInt(id_raw);
+            sd.updateStaff(id, a);
+        } catch (Exception e) {
+            request.setAttribute("error", "error");
+            request.getRequestDispatcher("admin/updateStaff.jsp").forward(request, response);
 
+        }
+        response.sendRedirect("manageStaffAccounts");
     }
 
     /**
