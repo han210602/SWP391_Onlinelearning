@@ -121,6 +121,7 @@ public class CoursesManager extends HttpServlet {
             request.setAttribute("endPage", endPage);
             request.setAttribute("listCate", category.getListCategory());
             request.setAttribute("data", data);
+                System.out.println(data.size());
             request.getRequestDispatcher("admin/coursesManager.jsp").forward(request, response);
              
              

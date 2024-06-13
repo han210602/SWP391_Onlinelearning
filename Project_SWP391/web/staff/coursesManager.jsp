@@ -301,7 +301,6 @@
                             <a href="#" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-calendar"></i></span>
                                 <span class="ttr-label">Calendar</span>
-                                <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
                             </a>
                             <ul>
                                 <li>
@@ -457,6 +456,7 @@
                                                     </form>
 						<div class="widget-inner">
                                                     <c:forEach items="${data}" var="c">
+                                                       
 							<div class="card-courses-list admin-courses">
 								<div class="card-courses-media">
 									<img src="${c.getImgUrl()}" alt=""/>

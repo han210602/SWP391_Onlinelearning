@@ -245,7 +245,7 @@
 			</div>
 			<!-- side menu logo end -->
 			<!-- sidebar menu start -->
-			<nav class="ttr-sidebar-navi">
+			 <nav class="ttr-sidebar-navi">
                     <ul>
                         <li>
                             <a href="dashboard" class="ttr-material-button">
@@ -269,7 +269,7 @@
                         <li>
                         <li>
                         <li>
-                            <a href="courses.html" class="ttr-material-button">
+                            <a href="manageStaffAccounts" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-book"></i></span>
                                 <span class="ttr-label">Staff Manager</span>
                             </a>
@@ -292,7 +292,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+<!--                        <li>
                             <a href="#" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-calendar"></i></span>
                                 <span class="ttr-label">Calendar</span>
@@ -306,7 +306,7 @@
                                     <a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">List View</span></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="bookmark.html" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
@@ -319,12 +319,12 @@
                                 <span class="ttr-label">Review</span>
                             </a>
                         </li>
-                        <li>
+<!--                        <li>
                             <a href="add-listing.html" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
                                 <span class="ttr-label">Add listing</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="adminprofile" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-user"></i></span>

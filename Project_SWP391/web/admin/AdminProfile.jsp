@@ -250,19 +250,34 @@
                 <!-- sidebar menu start -->
                 <nav class="ttr-sidebar-navi">
                     <ul>
-<!--                        <li>
-                            <a href="index.html" class="ttr-material-button">
+                        <li>
+                            <a href="dashboard" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-home"></i></span>
                                 <span class="ttr-label">Dashborad</span>
                             </a>
-                        </li>-->
+                        </li>
                         <li>
-                            <a href="shomepage?pageIndex=1" class="ttr-material-button">
+                            <a href="coursesmanager?pageIndex=1" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-book"></i></span>
                                 <span class="ttr-label">Courses Manager</span>
                             </a>
                         </li>
-<!--                        <li>
+                        <li>
+                        <li>
+                            <a href="teachermanager?pageIndex=1" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-book"></i></span>
+                                <span class="ttr-label">Teacher Manager</span>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                        <li>
+                            <a href="manageStaffAccounts" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-book"></i></span>
+                                <span class="ttr-label">Staff Manager</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="#" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-email"></i></span>
                                 <span class="ttr-label">Mailbox</span>
@@ -279,7 +294,7 @@
                                     <a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
                                 </li>
                             </ul>
-                        </li>-->
+                        </li>
 <!--                        <li>
                             <a href="#" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-calendar"></i></span>
@@ -295,30 +310,30 @@
                                 </li>
                             </ul>
                         </li>-->
-<!--                        <li>
+                        <li>
                             <a href="bookmark.html" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
                                 <span class="ttr-label">Bookmarks</span>
                             </a>
-                        </li>-->
-<!--                        <li>
+                        </li>
+                        <li>
                             <a href="review.html" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-comments"></i></span>
                                 <span class="ttr-label">Review</span>
                             </a>
-                        </li>-->
-                        <li>
-                            <a href="staffaddcourse" class="ttr-material-button">
+                        </li>
+<!--                        <li>
+                            <a href="add-listing.html" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
                                 <span class="ttr-label">Add listing</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
-                            <a href="staffprofile" class="ttr-material-button">
+                            <a href="adminprofile" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-user"></i></span>
                                 <span class="ttr-label">My Profile</span>
                             </a>
-                            
+                           
                         </li>
                         <li class="ttr-seperate"></li>
                     </ul>

@@ -33,13 +33,13 @@ public class Administrator extends DBContext{
     public Administrator() {
         connect();
     }
-
+//id, username, image, email, fname, gender, address, roleId, image
     public Administrator(String username, String pass) {
         this.username = username;
         this.pass = pass;
         connect();
     }
-
+    
     public Administrator(String id, String username, String pass, String email, String fullname, String gender, String address, String roles_id) {
         this.id = id;
         this.username = username;
@@ -51,6 +51,20 @@ public class Administrator extends DBContext{
         this.roles_id = roles_id;
         connect();
     }
+   //Administrator(String.valueOf(id), username, password, email, fname, gender, address, roleId, image)
+
+    public Administrator(String id, String username, String pass, String email, String fullname, String gender, String address, String roles_id, String imgUrl) {
+        this.id = id;
+        this.username = username;
+        this.pass = pass;
+        this.email = email;
+        this.fullname = fullname;
+        this.gender = gender;
+        this.address = address;
+        this.roles_id = roles_id;
+        this.imgUrl = imgUrl;
+    }
+    
 
     public Administrator(String id, String username, String pass, String email, String fullname, String gender, String address, String roles_id, String imgUrl, String occ, String company, String phone, String city, String state, String dob) {
         this.id = id;

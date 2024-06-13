@@ -104,6 +104,18 @@
         <servlet-name>StaffDeleteCourse</servlet-name>
         <servlet-class>StaffController.StaffDeleteCourse</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>manageStaffAccounts</servlet-name>
+        <servlet-class>AdminController.manageStaffAccounts</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateStaff</servlet-name>
+        <servlet-class>AdminController.CreateStaff</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateStaff</servlet-name>
+        <servlet-class>AdminController.UpdateStaff</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -207,6 +219,18 @@
     <servlet-mapping>
         <servlet-name>StaffDeleteCourse</servlet-name>
         <url-pattern>/staffdeletecourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>manageStaffAccounts</servlet-name>
+        <url-pattern>/manageStaffAccounts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateStaff</servlet-name>
+        <url-pattern>/createStaff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStaff</servlet-name>
+        <url-pattern>/updatestaff</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
