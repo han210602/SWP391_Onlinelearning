@@ -86,7 +86,7 @@
 									<input type="checkbox" class="custom-control-input" id="customControlAutosizing">
 									<label class="custom-control-label" for="customControlAutosizing">Remember me</label>
 								</div>
-								<a href="forget-password.jsp" class="ml-auto">Forgot Password?</a>
+								<a href="forgetpassword" class="ml-auto">Forgot Password?</a>
 							</div>
 						</div>
 						<div class="col-lg-12 m-b30">
@@ -95,7 +95,9 @@
 						<div class="col-lg-12">
 							<h6>Login with Social media</h6>
 							<div class="d-flex">
-								<a class="btn flex-fill m-r5 facebook" href="#"><i class="fa fa-facebook"></i>Facebook</a>
+								<a class="btn flex-fill m-r5 facebook" 
+                                                                   href="https://www.facebook.com/v19.0/dialog/oauth?client_id=814874080550783&redirect_uri=http://localhost:9999/Project_SWP391/loginfacebook"
+                                                                   ><i class="fa fa-facebook"></i>Facebook</a>
 								<a class="btn flex-fill m-l5 google-plus" href="#"><i class="fa fa-google-plus"></i>Google Plus</a>
 							</div>
 						</div>

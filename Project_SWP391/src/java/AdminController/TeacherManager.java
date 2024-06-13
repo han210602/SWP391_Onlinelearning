@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import model.Teachers;
 
@@ -58,7 +59,9 @@ public class TeacherManager extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+HttpSession session=request.getSession();
+            if(session.getAttribute("username")!=null&&session.getAttribute("role").equals("admin")){
+             
         TeacherDAO teacher = new TeacherDAO();
         ArrayList<Teachers> data = new ArrayList<>();
         int count = 0;
@@ -72,7 +75,13 @@ public class TeacherManager extends HttpServlet {
         if(pageSize_raw ==null){
             pageSize =2;
         }else{
+            if(request.getParameter("pageSize").equals("0")){
+                
+            }
+            else{
             pageSize=Integer.parseInt(pageSize_raw);
+
+            }
         }
         
         
@@ -100,7 +109,10 @@ public class TeacherManager extends HttpServlet {
         request.setAttribute("endPage", endPage);
         request.setAttribute("data", data);
         request.getRequestDispatcher("admin/teacherManager.jsp").forward(request, response);
+            }else{
+                                request.getRequestDispatcher("pleaseLogin.jsp").forward(request, response);
 
+            }
     }
 
     /**

@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="dao.CourseDAO"%>
@@ -182,7 +184,7 @@
 								<li><a href="user-profile.html">My profile</a></li>
 								<li><a href="list-view-calendar.html">Activity</a></li>
 								<li><a href="mailbox.html">Messages</a></li>
-								<li><a href="../login.html">Logout</a></li>
+								<li><a href="logout">Logout</a></li>
 							</ul>
 						</div>
 					</li>
@@ -250,105 +252,97 @@
 			</div>
 			<!-- side menu logo end -->
 			<!-- sidebar menu start -->
-			<nav class="ttr-sidebar-navi">
-				<ul>
-					<li>
-						<a href="dashboard" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-home"></i></span>
-		                	<span class="ttr-label">Dashborad</span>
-		                </a>
-		            </li>
-					<li>
-						<a href="coursesmanager" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-book"></i></span>
-		                	<span class="ttr-label">Courses Manager</span>
-		                </a>
-		            </li>
-					<li>
-                                            <li>
-						<a href="teachermanager?pageIndex=1" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-book"></i></span>
-                                                        <span class="ttr-label">Teacher Manager</span>
-                                                </a>
-                                            </li>
-					<li>
-                                            			<li>
-                                            <li>
-						<a href="courses.html" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-book"></i></span>
-                                                        <span class="ttr-label">Staff Manager</span>
-                                                </a>
-                                            </li>
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-email"></i></span>
-		                	<span class="ttr-label">Mailbox</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="mailbox.html" class="ttr-material-button"><span class="ttr-label">Mail Box</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="mailbox-compose.html" class="ttr-material-button"><span class="ttr-label">Compose</span></a>
-		                	</li>
-							<li>
-		                		<a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-calendar"></i></span>
-		                	<span class="ttr-label">Calendar</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="basic-calendar.html" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">List View</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-					<li>
-						<a href="bookmark.html" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
-		                	<span class="ttr-label">Bookmarks</span>
-		                </a>
-		            </li>
-					<li>
-						<a href="review.html" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-comments"></i></span>
-		                	<span class="ttr-label">Review</span>
-		                </a>
-		            </li>
-					<li>
-						<a href="add-listing.html" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
-		                	<span class="ttr-label">Add listing</span>
-		                </a>
-		            </li>
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-user"></i></span>
-		                	<span class="ttr-label">My Profile</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="teacher-profile.html" class="ttr-material-button"><span class="ttr-label">Teacher Profile</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-		            <li class="ttr-seperate"></li>
-				</ul>
-				<!-- sidebar menu end -->
-			</nav>
+			 <nav class="ttr-sidebar-navi">
+                    <ul>
+                        <li>
+                            <a href="dashboard" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-home"></i></span>
+                                <span class="ttr-label">Dashborad</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="coursesmanager?pageIndex=1" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-book"></i></span>
+                                <span class="ttr-label">Courses Manager</span>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="teachermanager?pageIndex=1" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-book"></i></span>
+                                <span class="ttr-label">Teacher Manager</span>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                        <li>
+                            <a href="manageStaffAccounts" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-book"></i></span>
+                                <span class="ttr-label">Staff Manager</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-email"></i></span>
+                                <span class="ttr-label">Mailbox</span>
+                                <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="mailbox.html" class="ttr-material-button"><span class="ttr-label">Mail Box</span></a>
+                                </li>
+                                <li>
+                                    <a href="mailbox-compose.html" class="ttr-material-button"><span class="ttr-label">Compose</span></a>
+                                </li>
+                                <li>
+                                    <a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
+                                </li>
+                            </ul>
+                        </li>
+<!--                        <li>
+                            <a href="#" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-calendar"></i></span>
+                                <span class="ttr-label">Calendar</span>
+                                <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="basic-calendar.html" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
+                                </li>
+                                <li>
+                                    <a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">List View</span></a>
+                                </li>
+                            </ul>
+                        </li>-->
+                        <li>
+                            <a href="bookmark.html" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
+                                <span class="ttr-label">Bookmarks</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="review.html" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-comments"></i></span>
+                                <span class="ttr-label">Review</span>
+                            </a>
+                        </li>
+<!--                        <li>
+                            <a href="add-listing.html" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+                                <span class="ttr-label">Add listing</span>
+                            </a>
+                        </li>-->
+                        <li>
+                            <a href="adminprofile" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-user"></i></span>
+                                <span class="ttr-label">My Profile</span>
+                            </a>
+                           
+                        </li>
+                        <li class="ttr-seperate"></li>
+                    </ul>
+                    <!-- sidebar menu end -->
+                </nav>
 			<!-- sidebar menu end -->
 		</div>
 	</div>
@@ -365,12 +359,96 @@
 				</ul>
 			</div>	
 			<div class="row">
+                            
 				<!-- Your Profile Views Chart -->
 				<div class="col-lg-12 m-b30">
 					<div class="widget-box">
 						<div class="wc-title">
 							<h4>Course</h4>
 						</div>
+                                            
+                                                    <div class="row">
+                                                    <div class="form-group col-6" >
+                                                        <label class="col-form-label">Category</label>
+                                                        <div>
+                                                            <script>
+                                                function changecate() {
+                                                document.getElementById("fr").submit();
+                                                }
+                                            </script>
+                                            <form id="fr" onchange="changecate()" action="coursesmanager" method="get">
+                                                <select name="cate">
+                                                    <option value="0">All Course</option>
+                                                    <c:forEach items="${listCate}" var="c">
+                                                        <c:choose>
+                                                            <c:when test="${c.getId() eq cate}">
+                                                                <option value="${c.getId()}" selected="">${c.getName()}</option>
+
+                                                            </c:when>
+                                                                   <c:otherwise>
+                                                            <option value="${c.getId()}">${c.getName()}</option>
+                                                        </c:otherwise>
+                                                        </c:choose>
+                                                     
+                                                    </c:forEach>
+                                                </select>
+                                                <input type="text" name="pageIndex" value="1" hidden="">
+                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <script>
+                                                    function change() {
+                                                 document.getElementById("frc").submit();
+                                                    }
+                                                    </script>
+                                               
+                                                    <div class="form-group col-6" >
+                                                        <label class="col-form-label">Approve</label>
+                                                        <div>
+                                                <form id="frc" onchange="change()" action="coursesmanager" method="get">
+                                                    <select name="approve" class="form-control">
+                                                    <c:choose>
+                                                        <c:when test="${approve eq '1'}">
+                                                    <option value="2">All Course</option>
+
+                                                    <option value="1" selected="">Pending</option>
+                                                    <option value="0">Pended</option>
+
+                                                        </c:when>
+                                                                              <c:when test="${approve eq '0'}">
+                                                    <option value="2">All Course</option>
+
+                                                    <option value="1">Pending</option>
+                                                    <option value="0" selected="">Pended</option>
+
+                                                
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <option value="2" selected="">All Course</option>
+
+                                                    <option value="1">Pending</option>
+                                                    <option value="0">Pended</option>
+
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    </select>
+                                                <input type="text" name="pageIndex" value="1" hidden="">
+                                            </form>
+                                                            </div>
+                                                      </div>
+                                                    </div>
+                                                    <form action="coursesmanager" method="get">
+                                                        <div class="row">
+                                                        <div class="form-group col-6">
+                                                        <input type="text" class="form-control" name="search" value="${search}">
+                                                        <input type="text" class="form-control" name="pageIndex" value="1" hidden="">
+
+                                                        </div>
+                                                        <div class="form-group col-6">
+                                                        <input type="submit" name="btnSearch" class="btn green radius-xl outline" value="search">
+                                                        </div>
+                                                        </div>
+                                                    </form>
 						<div class="widget-inner">
                                                     <c:forEach items="${data}" var="c">
 							<div class="card-courses-list admin-courses">
@@ -394,7 +472,7 @@
 											</li>
 											<li class="card-courses-categories">
 												<h5>Categories</h5>
-												<h4>Backend</h4>
+												<h4>${c.getNameCate()}</h4>
 											</li>
 											<li class="card-courses-review">
 												<h5>3 Review</h5>
@@ -409,14 +487,20 @@
                                                                                         <c:choose>
                                                                                             <c:when test="${c.getIsActive() eq 'true'}">
                                                                                                 <li class="card-courses-stats">
-												<a href="#" class="btn button-sm red radius-xl">Pending</a>
-											</li>
+												<a href="#" class="btn button-sm green radius-xl">Pending</a>
+                                                                                                </li>
                                                                                             </c:when>
+                                                                                            <c:otherwise>
+                                                                                                <li class="card-courses-stats">
+												<a href="#" class="btn button-sm red radius-xl">Pending</a>
+                                                                                                </li>
+                                                                                            </c:otherwise>
                                                                                         </c:choose>
 											
 											<li class="card-courses-price">
 												<del>$190</del>
-												<h5 class="text-primary">${c.getPrice()*c.getPrice()}</h5>
+<h5 class="text-primary"><fmt:formatNumber value="${c.getPrice() *( 1-c.getDiscount())}" type="number" maxFractionDigits="2" />
+</h5>
 											</li>
 										</ul>
 									</div>
@@ -426,16 +510,42 @@
 											<p>${c.getDescription()}</p>	
 										</div>
 										<div class="col-md-12">
-											<a href="coursesmanager?mod=1&id=${c.id}" class="btn green radius-xl outline">Approve</a>
-											<a href="#" class="btn red outline radius-xl ">Cancel</a>
-										</div>
+											<a href="approvecourse?mod=1&id=${c.id}" class="btn green radius-xl outline">Approve</a>
+											<a href="approvecourse?mod=0&id=${c.id}" class="btn red outline radius-xl ">Cancel</a>
+											<a href="approvecourer?mod=2&id=${c.id}" class="btn red outline radius-xl ">Delete</a>
+</div>
+                                                                                
 									</div>
 									
 								</div>
 							</div>
                                                     </c:forEach>
-   
+                                                    <c:choose>
+                                                    <c:when test="${cate != null}">
+                                                    <c:forEach begin="1" end="${endPage}" var="i">
+                                                        <a href="coursesmanager?pageIndex=${i}&cate=${cate}" class="btn green radius-xl outline">${i}</a>
+                                                    </c:forEach>
+                                                    </c:when>
+                                                        <c:when test="${approve != null}">
+                                                    <c:forEach begin="1" end="${endPage}" var="i">
+                                                        <a href="coursesmanager?pageIndex=${i}&approve=${approve}" class="btn green radius-xl outline">${i}</a>
+                                                    </c:forEach>
+                                                    </c:when>
+                                                         <c:when test="${search != null}">
+                                                    <c:forEach begin="1" end="${endPage}" var="i">
+                                                        <a href="coursesmanager?pageIndex=${i}&search=${search}" class="btn green radius-xl outline">${i}</a>
+                                                    </c:forEach>
+                                                    </c:when>
+                                                        <c:otherwise>
+                                                         <c:forEach begin="1" end="${endPage}" var="i">
+                                                        <a href="coursesmanager?pageIndex=${i}" class="btn green radius-xl outline">${i}</a>
+                                                    </c:forEach>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    
+                                                    
 						</div>
+                                                   
 					</div>
 				</div>
 				<!-- Your Profile Views Chart END-->

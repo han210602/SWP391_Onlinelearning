@@ -59,7 +59,7 @@
 			<div class="account-container">
 				<div class="heading-bx left">
 					<h2 class="title-head">Sign Up <span>Now</span></h2>
-					<p>Login Your Account <a href="login.html">Click here</a></p>
+					<p>Login Your Account <a href="login">Click here</a></p>
 				</div>	
                             <form class="contact-bx" action="register" method="post">
 					<div class="row placeani">
@@ -94,6 +94,14 @@
 								<div class="input-group">
 									<label>Your Email Address</label>
 									<input name="email" type="email" required="" class="form-control">
+								</div>
+							</div>
+						</div>
+                                                                <div class="col-lg-12">
+							<div class="form-group">
+								<div class="input-group">
+									<label>Your Phone</label>
+									<input name="phone" type="text" required="" class="form-control">
 								</div>
 							</div>
 						</div>

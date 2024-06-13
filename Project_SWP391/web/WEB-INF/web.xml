@@ -33,6 +33,26 @@
         <servlet-class>AdminController.CoursesManager</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ApproveCourse</servlet-name>
+        <servlet-class>AdminController.ApproveCourse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginFacebook</servlet-name>
+        <servlet-class>FacebookAPI.LoginFacebook</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomePage</servlet-name>
+        <servlet-class>LoginController.HomePage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgetPassword</servlet-name>
+        <servlet-class>LoginController.ForgetPassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>LoginController.ResetPassword</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>TeacherManager</servlet-name>
         <servlet-class>AdminController.TeacherManager</servlet-class>
     </servlet>
@@ -47,6 +67,54 @@
     <servlet>
         <servlet-name>TeacherUpdate</servlet-name>
         <servlet-class>AdminController.TeacherUpdate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SHomePage</servlet-name>
+        <servlet-class>StaffController.SHomePage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffProfile</servlet-name>
+        <servlet-class>StaffController.StaffProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffAddCourse</servlet-name>
+        <servlet-class>StaffController.StaffAddCourse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryListServlet</servlet-name>
+        <servlet-class>CategoryController.CategoryListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageCategoryServlet</servlet-name>
+        <servlet-class>CategoryController.ManageCategoryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffUpdateCourse</servlet-name>
+        <servlet-class>StaffController.StaffUpdateCourse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminProfile</servlet-name>
+        <servlet-class>AdminController.AdminProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>LoginController.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffDeleteCourse</servlet-name>
+        <servlet-class>StaffController.StaffDeleteCourse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>manageStaffAccounts</servlet-name>
+        <servlet-class>AdminController.manageStaffAccounts</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateStaff</servlet-name>
+        <servlet-class>AdminController.CreateStaff</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateStaff</servlet-name>
+        <servlet-class>AdminController.UpdateStaff</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -81,6 +149,26 @@
         <url-pattern>/coursesmanager</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ApproveCourse</servlet-name>
+        <url-pattern>/approvecourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginFacebook</servlet-name>
+        <url-pattern>/loginfacebook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomePage</servlet-name>
+        <url-pattern>/homepage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgetPassword</servlet-name>
+        <url-pattern>/forgetpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/resetpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>TeacherManager</servlet-name>
         <url-pattern>/teachermanager</url-pattern>
     </servlet-mapping>
@@ -95,6 +183,54 @@
     <servlet-mapping>
         <servlet-name>TeacherUpdate</servlet-name>
         <url-pattern>/teacherupdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SHomePage</servlet-name>
+        <url-pattern>/shomepage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffProfile</servlet-name>
+        <url-pattern>/staffprofile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffAddCourse</servlet-name>
+        <url-pattern>/staffaddcourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryListServlet</servlet-name>
+        <url-pattern>/categorylist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageCategoryServlet</servlet-name>
+        <url-pattern>/managecategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffUpdateCourse</servlet-name>
+        <url-pattern>/staffupdatecourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminProfile</servlet-name>
+        <url-pattern>/adminprofile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffDeleteCourse</servlet-name>
+        <url-pattern>/staffdeletecourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>manageStaffAccounts</servlet-name>
+        <url-pattern>/manageStaffAccounts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateStaff</servlet-name>
+        <url-pattern>/createStaff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStaff</servlet-name>
+        <url-pattern>/updatestaff</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

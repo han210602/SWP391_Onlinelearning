@@ -11,6 +11,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.security.MessageDigest;
+import java.util.Base64;
 import model.Customer;
 import model.Administrator;
 
@@ -53,25 +56,34 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       String username=request.getParameter("username");
-       String password=request.getParameter("password");
-        Administrator u =new Administrator(username, password);
-        Customer c=new Customer(username, password);
+        String username=request.getParameter("username");
+        String password=request.getParameter("password");
+        Administrator u =new Administrator(username, toSHA1(password));
+        Customer c=new Customer(username, toSHA1(password));
+         HttpSession session=request.getSession();
+
         if(u.checkAdministrator()!=null){
-        
+            session.setAttribute("username", username);
             if(u.checkAdministrator().getRoles_id().equals("1")){
+                session.setAttribute("role", "admin");
                 request.getRequestDispatcher("admin/dashboard.jsp").forward(request, response);
             }else if(u.checkAdministrator().getRoles_id().equals("3")){
+                session.setAttribute("role", "teacher");
                 request.getRequestDispatcher("teacher/home.jsp").forward(request, response);
 
             }else if(u.checkAdministrator().getRoles_id().equals("2")){
-                request.getRequestDispatcher("staff/home.jsp").forward(request, response);
+            session.setAttribute("role", "staff");
+            session.setAttribute("staffid", u.checkAdministrator().getId());
+               // request.getRequestDispatcher("staff/coursesManager.jsp").forward(request, response);
+            //request.setAttribute("staff", u.getId());
+            response.sendRedirect("shomepage?pageIndex=1");
 
             }else{
                 request.getRequestDispatcher("login.jsp").forward(request, response);
  
             }
         }else if(c.checkCustomer()!=null){
+        session.setAttribute("role", "customer");
         request.getRequestDispatcher("homePage.jsp").forward(request, response);
         }else{
         request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -80,10 +92,18 @@ public class LoginController extends HttpServlet {
 
         
     }
+ public String toSHA1(String str){
+        String salt="asdfghjkl;";
+        String result=null;
+        str+=salt;
+        try{
+            byte[] dataBytes=str.getBytes("UTF-8");
+            MessageDigest md=MessageDigest.getInstance("SHA-1");
+            result=Base64.getEncoder().encodeToString(md.digest(dataBytes));
+        }catch(Exception e){
+            
+        }
+        return result;
+    }
 
-    /** 
-     * Returns a short description of the servlet.
-     * @return a String containing servlet description
-     */
- 
 }

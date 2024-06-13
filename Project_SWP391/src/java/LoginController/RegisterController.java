@@ -11,6 +11,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.security.MessageDigest;
+import java.util.Base64;
 import model.Customer;
 
 /**
@@ -54,7 +56,8 @@ public class RegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("register.jsp").forward(request, response);
+
     } 
 
     /** 
@@ -70,7 +73,8 @@ public class RegisterController extends HttpServlet {
         String username=request.getParameter("username");
         String email=request.getParameter("email");
         String pass=request.getParameter("pass");
-        Customer customer=new Customer(username, pass, email);
+        String phone=request.getParameter("phone");
+        Customer customer=new Customer(username, toSHA1(pass), email,phone);
         if(customer.checkUsername(username)){
         customer.registerCustomer();
         request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -81,7 +85,19 @@ public class RegisterController extends HttpServlet {
         }
 
     }
-
+    public String toSHA1(String str){
+        String salt="asdfghjkl;";
+        String result=null;
+        str+=salt;
+        try{
+            byte[] dataBytes=str.getBytes("UTF-8");
+            MessageDigest md=MessageDigest.getInstance("SHA-1");
+            result=Base64.getEncoder().encodeToString(md.digest(dataBytes));
+        }catch(Exception e){
+            
+        }
+        return result;
+    }
     /** 
      * Returns a short description of the servlet.
      * @return a String containing servlet description
