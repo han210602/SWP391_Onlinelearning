@@ -138,10 +138,9 @@ public class UserDAO extends DBContext {
         }
     }
 
-    public void updateUser(int id, String username, String password, String email, String fullname, String gender, String address, String phone) {
+    public void updateUser(int id, String username, String email, String fullname, String gender, String address, String phone) {
         try {
             String sql = "UPDATE Customer SET [username] = ? \n" +
-"      ,[password] = ? \n" +
 "      ,[fullname] = ? \n" +
 "      ,[email] = ? \n" +
 "      ,[phone] = ? \n" +
@@ -150,14 +149,13 @@ public class UserDAO extends DBContext {
                                       " WHERE [customer_id] = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, username);
-            ps.setString(2, password);
-             ps.setString(3, fullname);
-            ps.setString(4, email);
-            ps.setString(5, phone);
-            ps.setBoolean(6, "male".equals(gender));
-            ps.setString(7, address);
+             ps.setString(2, fullname);
+            ps.setString(3, email);
+            ps.setString(4, phone);
+            ps.setBoolean(5, "male".equals(gender));
+            ps.setString(6, address);
           
-            ps.setInt(8, id);
+            ps.setInt(7, id);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);

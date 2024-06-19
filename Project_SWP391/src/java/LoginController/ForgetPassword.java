@@ -55,7 +55,12 @@ public class ForgetPassword extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+          String email=request.getParameter("email");
+          if(email != null){
+              doPost(request, response);
+          }else{
                 request.getRequestDispatcher("forgetPassword.jsp").forward(request, response);
+                }
 
     } 
 

@@ -82,7 +82,7 @@ public class EditUserController extends HttpServlet {
             throws ServletException, IOException {
         String id = request.getParameter("id");
         String username = request.getParameter("username");
-        String password = request.getParameter("password");
+//        String password = request.getParameter("password");
         String email = request.getParameter("email");
         String fullname = request.getParameter("fullname");
         String gender = request.getParameter("gender");
@@ -92,7 +92,7 @@ public class EditUserController extends HttpServlet {
         Customer c1 = userDAO.getUserById(Integer.parseInt(id));
         Customer c2 = userDAO.getUserByEmail(email);
         if ((!email.equals(c1.getEmail()) && c2 == null) || email.equals(c1.getEmail())) {
-            userDAO.updateUser(Integer.parseInt(id), username, password, email, fullname, gender, address, phone);
+            userDAO.updateUser(Integer.parseInt(id), username, email, fullname, gender, address, phone);
             request.setAttribute("success", "Edit success");
         }else{
             request.setAttribute("error", "Email existed");

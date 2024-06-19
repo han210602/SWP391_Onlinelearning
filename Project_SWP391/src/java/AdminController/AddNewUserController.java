@@ -13,8 +13,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.security.MessageDigest;
 import model.Customer;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -36,6 +38,19 @@ public class AddNewUserController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+     public String toSHA1(String str){
+        String salt="asdfghjkl;";
+        String result=null;
+        str+=salt;
+        try{
+            byte[] dataBytes=str.getBytes("UTF-8");
+            MessageDigest md=MessageDigest.getInstance("SHA-1");
+            result=Base64.getEncoder().encodeToString(md.digest(dataBytes));
+        }catch(Exception e){
+            
+        }
+        return result;
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -51,9 +66,9 @@ public class AddNewUserController extends HttpServlet {
             UserDAO userDAO = new UserDAO();
             Customer c = userDAO.getUserByEmail(email);
             if (c == null) {
-                userDAO.insertUser(username, password, email, fullname, gender, address, phone);
+                userDAO.insertUser(username, toSHA1(password), email, fullname, gender, address, phone);
                 //send password to mail
-                MailService.sendMail(email, "Password!", "Your password is: " + password);
+                MailService.sendMail(email, "Password!", "Your password is: " + password + ". Link to change password: http://localhost:8082/Project_SWP391/forgetpassword?email=" + email);
 
                 request.setAttribute("success", "Add success");
             } else {

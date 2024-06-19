@@ -480,10 +480,10 @@
                                                         <label for="recipient-name" class="col-form-label">User Name</label>
                                                         <input type="text" class="form-control" id="recipient-name" name="username" required="" value="${c.username}">
                                                     </div>
-                                                    <div class="form-group">
+<!--                                                    <div class="form-group">
                                                         <label for="message-text" class="col-form-label">Password</label>
                                                         <input type="text" class="form-control" id="recipient-name" name="password" required="" value="${c.getPass()}">
-                                                    </div>
+                                                    </div>-->
                                                     <div class="form-group">
                                                         <label for="message-text" class="col-form-label">Phone</label>
                                                         <input type="text" class="form-control" id="recipient-name" name="phone" required="" value="${c.phone}">
