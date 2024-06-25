@@ -168,5 +168,10 @@ public class Course extends DBContext{
     public void setRate(String rate) {
         this.rate = rate;
     }
+
+    @Override
+    public String toString() {
+        return "Course{" + "id=" + id + ", title=" + title + ", description=" + description + ", price=" + price + ", duration=" + duration + ", isActive=" + isActive + ", imgUrl=" + imgUrl + ", cateId=" + cateId + ", adId=" + adId + ", rate=" + rate + ", nameTeacher=" + nameTeacher + ", nameCate=" + nameCate + ", discount=" + discount + ", start=" + start + ", idcate=" + idcate + ", idteacher=" + idteacher + '}';
+    }
     
 }
