@@ -15,7 +15,7 @@ import java.sql.Statement;
  * @author admin
  */
 public class Course extends DBContext{
-    String id,title,description,price,duration,isActive,imgUrl,cateId,adId,rate,nameTeacher,nameCate,discount,start,idcate,idteacher;
+    String id,title,description,price,duration,isActive,imgUrl,cateId,adId,rate,nameTeacher,nameCate,discount,start,idcate,idteacher,count;
  
     public Course() {
     }
@@ -65,6 +65,25 @@ public class Course extends DBContext{
         this.nameCate = nameCate;
         this.discount = discount;
     }
+ public Course(String id, String title, String description, String price, String duration, String isActive, String imgUrl, String cateId, String adId, String rate, String nameTeacher, String nameCate, String discount,String start,String count,String abc) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.duration = duration;
+        this.isActive = isActive;
+        this.imgUrl = imgUrl;
+        this.cateId = cateId;
+        this.adId = adId;
+        this.rate = rate;
+        this.nameTeacher = nameTeacher;
+        this.nameCate = nameCate;
+        this.discount = discount;
+        this.start=start;
+        this.count=count;
+        this.idteacher=abc;
+
+    }
 
     public Course(String id, String title, String description, String price, String duration, String isActive, String imgUrl, String cateId, String adId, String rate, String nameTeacher, String nameCate, String discount, String start,  String idteacher) {
         this.id = id;
@@ -99,6 +118,14 @@ public class Course extends DBContext{
 
     public void setNameCate(String nameCate) {
         this.nameCate = nameCate;
+    }
+
+    public String getCount() {
+        return count;
+    }
+
+    public void setCount(String count) {
+        this.count = count;
     }
 
     public String getDiscount() {

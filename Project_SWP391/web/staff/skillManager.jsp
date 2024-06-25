@@ -43,6 +43,7 @@
         <!-- All PLUGINS CSS ============================================= -->
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/assets.css">
         <link rel="stylesheet" type="text/css" href="assetsAdmin/vendors/calendar/fullcalendar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.3/font/bootstrap-icons.min.css">
 
         <!-- TYPOGRAPHY ============================================= -->
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/typography.css">
@@ -330,6 +331,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="SkillManager" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+                                <span class="ttr-label">SkillManager</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="staffprofile" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-user"></i></span>
                                 <span class="ttr-label">My Profile</span>
@@ -354,13 +361,13 @@
         <!-- Left sidebar menu end -->
 
         <!--Main container start -->
-        <main class="ttr-wrapper">
+        <main class="ttr-wrapper" style="width:60%">
             <div class="container-fluid">
                 <div class="db-breadcrumb">
-                    <h4 class="breadcrumb-title">My Course</h4>
+                    <h4 class="breadcrumb-title">SkillManager</h4>
                     <ul class="db-breadcrumb-list">
                         <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-                        <li>My Courses</li>
+                        <li>SkillManager</li>
                     </ul>
                 </div>	
                 <div class="row">
@@ -369,49 +376,34 @@
                     <div class="col-lg-12 m-b30">
                         <div class="widget-box">
                             <div class="wc-title">
-                                <h4>Course</h4>
+                                 <form action="crudskill" method="post" >
+                                    SkillName:
+                                    <input type="text" name="name"/>
+                                    Description:
+                                    <input type="text" name="description">
+                                    <input type="submit" value="AddSkill" />
+                                </form>
                             </div>
-
-
-                            <div class="widget-inner">
-                                <table style="border: 1">
-                                    <tr>
-                                        <td>OrderID</td>
-                                        <td>CustomerName</td>
-                                        <td>Phone</td>
-                                        <td>Email</td>
-                                        <td>Address</td>
-                                        <td>OrderDate</td>
-                                        <td>Payment</td>
-
-                                    </tr>
-                                  
-                                        <!--inner id, idc, orderdate, total, payment, namec, phone, email, address-->
-<!-- String order_id,customer_id,orderdate,total,payment;
-    String c_name,c_phone,c_email,c_address;-->
-                                        <c:forEach items="${data}" var="c">
-                                              <tr>
-                                            <td>${c.getOrder_id()}</td>
-                                            <td>${c.getC_name()}</td>
-                                            <td>${c.getC_phone()}</td>
-                                            <td>${c.getC_email()}</td>
-                                            <td>${c.getC_address()}</td>
-                                            <td>${c.getOrderdate()}</td>
-                                            <td>${c.getPayment()}</td>
-
-</tr>
-                                        </c:forEach>
-
-                                    
-
-
-                                </table>
-
-                                <c:forEach begin="1" end="${endPage}" var="i">
-                                    <a href="shomepage?pageIndex=${i}" class="btn green radius-xl outline">${i}</a>
-                                </c:forEach>
-
-                            </div>
+                            
+                           <div class="widget-inner">
+    <c:forEach items="${listskill}" var="c">
+        <div class="card-courses-full-dec">
+            <div class="row card-courses-dec">
+                <div class="col-md-12" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4><a href="crudskill?id=${c.id}&mod=2">${c.getName()}</a></h4>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="crudskill?id=${c.id}&mod=1" class="btn btn-outline-success radius-xl">
+                            <i class="bi bi-pencil-square"></i> <!-- Edit icon -->
+                        </a>
+                        <a href="crudskill?id=${c.id}&mod=0" class="btn btn-outline-danger radius-xl">
+                            <i class="bi bi-trash"></i> <!-- Delete icon -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </c:forEach>
+</div>
 
                         </div>
                     </div>

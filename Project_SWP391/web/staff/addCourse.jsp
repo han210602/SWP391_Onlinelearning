@@ -312,6 +312,12 @@
                                 <span class="ttr-label">Add listing</span>
                             </a>
                         </li>
+                         <li>
+                            <a href="SkillManager" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+                                <span class="ttr-label">SkillManager</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="staffprofile" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-user"></i></span>

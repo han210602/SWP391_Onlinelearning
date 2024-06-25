@@ -3,30 +3,40 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/admin/CreateStaff.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/admin/teacherManager.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/AdminController/UpdateStaff.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/model/Administrator.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/model/Customer.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/staff/coursesManager.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/AdminController/CreateStaff.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/dao/DBContext.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/admin/manageStaffAccounts.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/staff/ordermanager.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/LoginController/HomePage.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/admin/AdminProfile.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/admin/coursesManager.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/model/Course.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/staff/orderDetail.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/dao/CourseDAO.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/admin/UpdateTeacher.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/AdminController/TeacherManager.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/admin/updateStaff.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/AdminController/CoursesManager.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/AdminController/manageStaffAccounts.java</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/admin/dashboard.jsp</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/admin/Desktop/OnlineLearning/SWP391_Onlinelearning/Project_SWP391/src/java/dao/StaffDAO.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/AdminController/AdminProfile.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/model/Skill.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/TeacherController/TeacherSkill.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/AdminController/CoursesManager.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/web/staff/skillManager.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/dao/CategoryDAO.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/TeacherController/TeacherProfile.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/web/staff/ordermanager.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/web/staff/coursesManager.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/web/staff/courseDetail.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/build/web/profileimgadministrator/</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/model/Teachers.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/StaffController/StaffProfile.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/dao/CourseDAO.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/web/staff/updateCourse.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/StaffController/CRUDSkill.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/model/Customer.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/model/Order.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/LoginController/HomePage.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/dao/StaffDAO.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/dao/SkillDAO.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/dao/TeacherSkillDAO.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/dao/OrderDAO.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/web/staff/addCourse.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/StaffController/OrderManager.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/StaffController/SHomePage.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/dao/CourseStaffDao.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/web/teacher/myProfile.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/web/admin/coursesManager.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/LoginController/LoginController.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/model/Course.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/model/TeacherSkill.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/dao/TeacherDAO.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Project_SWP391/src/java/StaffController/SkillManager.java</file>
         </group>
     </open-files>
 </project-private>

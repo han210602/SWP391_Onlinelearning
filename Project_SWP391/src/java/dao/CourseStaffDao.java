@@ -17,7 +17,7 @@ public class CourseStaffDao extends DBContext{
    
     public ArrayList<Course> getListCourses(int pageIndex,int pageSize,int ids){
         ArrayList<Course>data=new ArrayList<>();
-        String sql = "SELECT [course_id],[title],co.description,[price],[duration],[isActive],[imageUrl],[administrator_id],t.name,ca.category_name ,[discount],[rate]\n" +
+        String sql = "SELECT [course_id],[title],co.description,[price],[duration],[isActive],[imageUrl],[administrator_id],t.name,ca.category_name ,[discount],[rate],startdate\n" +
 "FROM Courses co  join Categories ca on co.category_id=ca.category_id  join Teachers t on co.teacher_id=t.teacher_id where co.administrator_id="+ids+" "
                 + "ORDER BY co.course_id OFFSET ? ROWS FETCH NEXT "+pageSize+" ROWS ONLY ";
         try {
@@ -36,8 +36,9 @@ public class CourseStaffDao extends DBContext{
                 String nameCate=rs.getString(10);
                 String discount=rs.getString(11);
                 String rate=rs.getString(12);
-              
-                data.add(new Course(id, title, description, price, duration, isActive, imageUrl, nameTeacher, nameCate, rate, nameTeacher, nameCate, discount));
+                String startdate=String.valueOf(rs.getDate(13));
+                String count=String.valueOf(getCourseOrder(Integer.parseInt(id)));
+                data.add(new Course(id, title, description, price, duration, isActive, imageUrl, nameTeacher, nameCate, rate, nameTeacher, nameCate, discount,startdate,count,"1"));
                 
                 
         
@@ -84,6 +85,21 @@ public class CourseStaffDao extends DBContext{
                         
 
 
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+        
+    }
+    public int getCourseOrder(int idc) {
+        String sql = "select count(*) from OrderDetails where course_id="+idc+"";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+              return rs.getInt(1);
+         
             }
         } catch (Exception e) {
             e.printStackTrace();

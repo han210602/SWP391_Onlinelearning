@@ -116,12 +116,9 @@ public class CoursesManager extends HttpServlet {
             if(count%pageSize!=0){
                 endPage++;
             }
-            System.out.println(endPage);
-           // course.getListCourses(Integer.parseInt(request.getParameter("pageIndex")),pageSize)
             request.setAttribute("endPage", endPage);
             request.setAttribute("listCate", category.getListCategory());
             request.setAttribute("data", data);
-                System.out.println(data.size());
             request.getRequestDispatcher("admin/coursesManager.jsp").forward(request, response);
              
              

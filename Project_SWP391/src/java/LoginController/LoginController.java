@@ -5,6 +5,7 @@
 
 package LoginController;
 
+import dao.TeacherDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -60,18 +61,17 @@ public class LoginController extends HttpServlet {
         String password=request.getParameter("password");
         Administrator u =new Administrator(username, toSHA1(password));
         Customer c=new Customer(username, toSHA1(password));
-         HttpSession session=request.getSession();
+        TeacherDAO t=new TeacherDAO();
+        
+        HttpSession session=request.getSession();
 
         if(u.checkAdministrator()!=null){
             session.setAttribute("username", username);
             if(u.checkAdministrator().getRoles_id().equals("1")){
                 session.setAttribute("role", "admin");
                 request.getRequestDispatcher("admin/dashboard.jsp").forward(request, response);
-            }else if(u.checkAdministrator().getRoles_id().equals("3")){
-                session.setAttribute("role", "teacher");
-                request.getRequestDispatcher("teacher/home.jsp").forward(request, response);
-
-            }else if(u.checkAdministrator().getRoles_id().equals("2")){
+            }else 
+                if(u.checkAdministrator().getRoles_id().equals("2")){
             session.setAttribute("role", "staff");
             session.setAttribute("staffid", u.checkAdministrator().getId());
                // request.getRequestDispatcher("staff/coursesManager.jsp").forward(request, response);
@@ -83,13 +83,23 @@ public class LoginController extends HttpServlet {
  
             }
         }else if(c.checkCustomer()!=null){
+            session.setAttribute("username", username);
         session.setAttribute("role", "customer");
         request.getRequestDispatcher("homePage.jsp").forward(request, response);
-        }else{
+        }else if(t.checkTeacher(username, password)!=null){
+        session.setAttribute("role", "teacher");
+        session.setAttribute("username", username);
+        request.getRequestDispatcher("homePage.jsp").forward(request, response); 
+        }
+        else{
         request.getRequestDispatcher("login.jsp").forward(request, response);
 
         }
-
+//if(u.checkAdministrator().getRoles_id().equals("3")){
+//                session.setAttribute("role", "teacher");
+//                request.getRequestDispatcher("teacher/home.jsp").forward(request, response);
+//
+//            }else 
         
     }
  public String toSHA1(String str){

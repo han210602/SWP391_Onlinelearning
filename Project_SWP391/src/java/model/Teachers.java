@@ -149,6 +149,11 @@ public class Teachers {
         this.active = active;
     }
 
+    @Override
+    public String toString() {
+        return "Teachers{" + "id=" + id + ", username=" + username + ", pass=" + pass + ", name=" + name + ", gender=" + gender + ", email=" + email + ", phone=" + phone + ", address=" + address + ", subject=" + subject + ", imgUrl=" + imgUrl + ", join_date=" + join_date + ", city=" + city + ", state=" + state + ", active=" + active + '}';
+    }
+
 
 
 

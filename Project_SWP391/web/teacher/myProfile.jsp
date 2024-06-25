@@ -44,7 +44,8 @@
 
         <!-- TYPOGRAPHY ============================================= -->
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/typography.css">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.3/font/bootstrap-icons.min.css">
         <!-- SHORTCODES ============================================= -->
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/shortcodes/shortcodes.css">
 
@@ -250,73 +251,67 @@
                 <!-- sidebar menu start -->
                 <nav class="ttr-sidebar-navi">
                     <ul>
-<!--                        <li>
-                            <a href="index.html" class="ttr-material-button">
-                                <span class="ttr-icon"><i class="ti-home"></i></span>
-                                <span class="ttr-label">Dashborad</span>
-                            </a>
-                        </li>-->
+                        <!--                        <li>
+                                                    <a href="index.html" class="ttr-material-button">
+                                                        <span class="ttr-icon"><i class="ti-home"></i></span>
+                                                        <span class="ttr-label">Dashborad</span>
+                                                    </a>
+                                                </li>-->
                         <li>
                             <a href="shomepage?pageIndex=1" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-book"></i></span>
                                 <span class="ttr-label">Courses Manager</span>
                             </a>
                         </li>
-<!--                        <li>
-                            <a href="#" class="ttr-material-button">
-                                <span class="ttr-icon"><i class="ti-email"></i></span>
-                                <span class="ttr-label">Mailbox</span>
-                                <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="mailbox.html" class="ttr-material-button"><span class="ttr-label">Mail Box</span></a>
-                                </li>
-                                <li>
-                                    <a href="mailbox-compose.html" class="ttr-material-button"><span class="ttr-label">Compose</span></a>
-                                </li>
-                                <li>
-                                    <a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
-                                </li>
-                            </ul>
-                        </li>-->
-<!--                        <li>
-                            <a href="#" class="ttr-material-button">
-                                <span class="ttr-icon"><i class="ti-calendar"></i></span>
-                                <span class="ttr-label">Calendar</span>
-                                <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="basic-calendar.html" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
-                                </li>
-                                <li>
-                                    <a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">List View</span></a>
-                                </li>
-                            </ul>
-                        </li>-->
-<!--                        <li>
-                            <a href="bookmark.html" class="ttr-material-button">
-                                <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
-                                <span class="ttr-label">Bookmarks</span>
-                            </a>
-                        </li>-->
-<!--                        <li>
-                            <a href="review.html" class="ttr-material-button">
-                                <span class="ttr-icon"><i class="ti-comments"></i></span>
-                                <span class="ttr-label">Review</span>
-                            </a>
-                        </li>-->
+                        <!--                        <li>
+                                                    <a href="#" class="ttr-material-button">
+                                                        <span class="ttr-icon"><i class="ti-email"></i></span>
+                                                        <span class="ttr-label">Mailbox</span>
+                                                        <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                                                    </a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="mailbox.html" class="ttr-material-button"><span class="ttr-label">Mail Box</span></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="mailbox-compose.html" class="ttr-material-button"><span class="ttr-label">Compose</span></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </li>-->
+                        <!--                        <li>
+                                                    <a href="#" class="ttr-material-button">
+                                                        <span class="ttr-icon"><i class="ti-calendar"></i></span>
+                                                        <span class="ttr-label">Calendar</span>
+                                                        <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                                                    </a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="basic-calendar.html" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">List View</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </li>-->
+                        <!--                        <li>
+                                                    <a href="bookmark.html" class="ttr-material-button">
+                                                        <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
+                                                        <span class="ttr-label">Bookmarks</span>
+                                                    </a>
+                                                </li>-->
+                        <!--                        <li>
+                                                    <a href="review.html" class="ttr-material-button">
+                                                        <span class="ttr-icon"><i class="ti-comments"></i></span>
+                                                        <span class="ttr-label">Review</span>
+                                                    </a>
+                                                </li>-->
                         <li>
                             <a href="staffaddcourse" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
                                 <span class="ttr-label">Add listing</span>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="SkillManager" class="ttr-material-button">
-                                <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
-                                <span class="ttr-label">SkillManager</span>
                             </a>
                         </li>
                         <li>
@@ -324,7 +319,7 @@
                                 <span class="ttr-icon"><i class="ti-user"></i></span>
                                 <span class="ttr-label">My Profile</span>
                             </a>
-                            
+
                         </li>
                         <li class="ttr-seperate"></li>
                     </ul>
@@ -350,12 +345,22 @@
                     <div class="col-lg-12 m-b30">
                         <div class="widget-box">
                             <div class="wc-title">
-                                <h4>Teacher Profile</h4>
+                                <div style="display: flex">
+                                    <h4>Teacher Profile</h4>
+                                    <c:choose>
+                                        <c:when test="${staff.getActive() eq 'true'}">
+                                            <a href="#" class="btn button-sm green radius-xl" style="margin-right: 10px">Active</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="#" class="btn button-sm red radius-xl">Active</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
                             </div>
                             <div class="widget-inner">
-                                <form class="edit-profile m-b30" action="staffprofile" method="post" enctype="multipart/form-data">
+                                <form class="edit-profile m-b30" action="teacherprofile" method="post" enctype="multipart/form-data">
                                     <div class="row">
-                                         <div class="seperator"></div>
+                                        <div class="seperator"></div>
 
                                         <div class="col-12 m-t20">
                                             <div class="ml-auto m-b5">
@@ -374,7 +379,7 @@
                                                 <input class="form-control" type="password" value="${staff.getPass()}" name="pass">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-12">
                                             <div class="ml-auto">
                                                 <h3>2. Personal Details</h3>
@@ -383,69 +388,57 @@
                                         <div class="form-group col-6">
                                             <label class="col-form-label">Full Name</label>
                                             <div>
-                                                <input class="form-control" type="text" value="${staff.getFullname()}" name="fullname">
+                                                <input class="form-control" type="text" value="${staff.getName()}" name="fullname">
                                             </div>
                                         </div>
-                                         <div class="form-group col-6">
-                                            <label class="col-form-label">Date Of Birth</label>
+                                        <div class="form-group col-6">
+                                            <label class="col-form-label">Date join</label>
                                             <div>
-                                                <input class="form-control" type="date" value="${staff.getDob()}" name="dob">
+                                                <input class="form-control" type="date" value="${staff.getJoin_date()}" name="dob">
                                             </div>
                                         </div>
-                                         <div class="form-group col-6">
+                                        <div class="form-group col-6">
                                             <label class="col-form-label">Gender</label>
                                             <div>
                                                 <!--<input class="form-control" type="text" value="${staff.getGender()}" name="gender">-->
                                                 <select class="form-control"  value="${staff.getGender()}" name="gender">
                                                     <c:choose>
                                                         <c:when test="${staff.getGender() eq 'Femail'}" >
-                                                            <option value="0" selected="">Femail</option>
+                                                            <option value="0" selected="">Female</option>
                                                             <option value="1" >Mail</option>
 
                                                         </c:when>
                                                         <c:otherwise>
-                                                             <option value="0" >Femail</option>
-                                                             <option value="1" selected="">Mail</option>
+                                                            <option value="0" >Female</option>
+                                                            <option value="1" selected="">Male</option>
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </select>
                                             </div>
                                         </div>
-                                         <div class="form-group col-6">
+                                        <div class="form-group col-6">
                                             <label class="col-form-label">Phone No.</label>
                                             <div>
                                                 <input class="form-control" type="text" value="${staff.getPhone()}" name="phone">
                                             </div>
                                         </div>
-                                           <div class="form-group col-6">
+                                        <div class="form-group col-6">
                                             <label class="col-form-label">Email</label>
                                             <div>
                                                 <input class="form-control" name="email" type="email" required="" value="${staff.getEmail()}" >
                                             </div>
                                         </div>
-                                          <div class="form-group col-6">
+                                        <div class="form-group col-6">
                                             <label class="col-form-label">Image</label>
                                             <div>
                                                 <input class="form-control" type="file" value="" name="image"/>
                                                 <input class="form-control" type="text" value="${staff.getImgUrl()}" name="imagedb" hidden=""/>
 
                                                 <image style="width: 300px" src="${staff.getImgUrl()}" alt="${staff.getImgUrl()}" />
-    </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Occupation</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="${staff.getOcc()}" name="occ">
                                             </div>
                                         </div>
-                                        <div class="form-group col-6">
-                                            <label class="col-form-label">Company Name</label>
-                                            <div>
-                                                <input class="form-control" type="text" value="${staff.getCompany()}" name="com">
-                                                <span class="help">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
-                                            </div>
-                                        </div>
-                                       
+
+
 
                                         <div class="seperator"></div>
 
@@ -516,53 +509,92 @@
                                         </div>
                                     </div>
                                 </form>
-<!--                                <form class="edit-profile">
-                                    <div class="row">
-                                        <div class="col-12 m-t20">
+                                <div class="col-12 m-t20">
                                             <div class="ml-auto">
-                                                <h3 class="m-form__section">4. Add Item</h3>
+                                                <h3 class="m-form__section">Yourskill</h3>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <table id="item-add" style="width:100%;">
-                                                <tr class="list-item">
-                                                    <td>
-                                                        <div class="row">
-                                                            <div class="col-md-4">
-                                                                <label class="col-form-label">Course Name</label>
-                                                                <div>
-                                                                    <input class="form-control" type="text" value="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <label class="col-form-label">Course Category</label>
-                                                                <div>
-                                                                    <input class="form-control" type="text" value="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <label class="col-form-label">Course Category</label>
-                                                                <div>
-                                                                    <input class="form-control" type="text" value="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <label class="col-form-label">Close</label>
-                                                                <div class="form-group">
-                                                                    <a class="delete" href="#"><i class="fa fa-close"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="button" class="btn-secondry add-item m-r5"><i class="fa fa-fw fa-plus-circle"></i>Add Item</button>
-                                            <button type="reset" class="btn">Save changes</button>
-                                        </div>
+
+                                         
+                                    <form action="TeacherSkill" id="frc" onchange="change()" method="post" enctype="multipart/form-data">
+                                    <div class="form-group col-6">
+                                        
+                                        Select Skill To Add:<select id="skillsSelect" name="ids" class="form-control">
+                                             <option value="0">SelectSkill</option>
+
+                                            <c:forEach items="${skill}" var="c">
+                                                <option value="${c.getId()}">${c.getName()}</option>
+                                            </c:forEach>
+                                        </select>    
+                                        <input type="hidden" value="${id}" name="id"/>
                                     </div>
-                                </form>-->
+                                    <div class="form-group col-6">
+                                        
+                                        <input type="file" name="cerimg"/>
+                                        <input type="submit" value="save"/>
+                                    </div>
+                                    
+                                </form>
+
+                                <div class="form-group col-6">
+                                    <c:forEach items="${skillt}" var="c">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <label class="mb-0"><a href="${c.getImage()}">${c.getName()}</a></label>
+                                            <a href="TeacherSkill?id=${id}&ids=${c.getIds()}" class="btn btn-outline-danger radius-xl">
+                                                <i class="bi bi-trash"></i> Delete
+                                            </a>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+
+
+                                <!--                                <form class="edit-profile">
+                                                                    <div class="row">
+                                                                        <div class="col-12 m-t20">
+                                                                            <div class="ml-auto">
+                                                                                <h3 class="m-form__section">4. Add Item</h3>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <table id="item-add" style="width:100%;">
+                                                                                <tr class="list-item">
+                                                                                    <td>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-4">
+                                                                                                <label class="col-form-label">Course Name</label>
+                                                                                                <div>
+                                                                                                    <input class="form-control" type="text" value="">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-md-3">
+                                                                                                <label class="col-form-label">Course Category</label>
+                                                                                                <div>
+                                                                                                    <input class="form-control" type="text" value="">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-md-3">
+                                                                                                <label class="col-form-label">Course Category</label>
+                                                                                                <div>
+                                                                                                    <input class="form-control" type="text" value="">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-md-2">
+                                                                                                <label class="col-form-label">Close</label>
+                                                                                                <div class="form-group">
+                                                                                                    <a class="delete" href="#"><i class="fa fa-close"></i></a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <button type="button" class="btn-secondry add-item m-r5"><i class="fa fa-fw fa-plus-circle"></i>Add Item</button>
+                                                                            <button type="reset" class="btn">Save changes</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>-->
                             </div>
                         </div>
                     </div>
@@ -591,22 +623,22 @@
         <script src="assetsAdmin/js/admin.js"></script>
         <script src='assetsAdmin/vendors/switcher/switcher.js'></script>
         <script>
-        // Pricing add
-            function newMenuItem() {
-                var newElem = $('tr.list-item').first().clone();
-                newElem.find('input').val('');
-                newElem.appendTo('table#item-add');
-            }
-            if ($("table#item-add").is('*')) {
-                $('.add-item').on('click', function (e) {
-                    e.preventDefault();
-                    newMenuItem();
-                });
-                $(document).on("click", "#item-add .delete", function (e) {
-                    e.preventDefault();
-                    $(this).parent().parent().parent().parent().remove();
-                });
-            }
+                                    // Pricing add
+                                    function newMenuItem() {
+                                        var newElem = $('tr.list-item').first().clone();
+                                        newElem.find('input').val('');
+                                        newElem.appendTo('table#item-add');
+                                    }
+                                    if ($("table#item-add").is('*')) {
+                                        $('.add-item').on('click', function (e) {
+                                            e.preventDefault();
+                                            newMenuItem();
+                                        });
+                                        $(document).on("click", "#item-add .delete", function (e) {
+                                            e.preventDefault();
+                                            $(this).parent().parent().parent().parent().remove();
+                                        });
+                                    }
         </script>
     </body>
 

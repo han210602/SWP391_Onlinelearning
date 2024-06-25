@@ -71,7 +71,7 @@ public class SHomePage extends HttpServlet {
             CourseStaffDao course = new CourseStaffDao();
             CategoryDAO category = new CategoryDAO();
             ArrayList<Course> data = new ArrayList<>();
-            int pageSize = 3;
+            int pageSize =5;
             int count = 0;
             if (request.getParameter("cate") != null) {
                 request.setAttribute("cate", request.getParameter("cate"));

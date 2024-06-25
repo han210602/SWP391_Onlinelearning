@@ -32,7 +32,7 @@ public class CourseDAO extends DBContext{
                 String nameCate=rs.getString(10);
                 String discount=rs.getString(11);
                 String rate=rs.getString(12);
-              
+                
                 data.add(new Course(id, title, description, price, duration, isActive, imageUrl, nameTeacher, nameCate, rate, nameTeacher, nameCate, discount));
                 
                 

@@ -15,7 +15,37 @@ import model.Teachers;
  * @author admin
  */
 public class TeacherDAO extends DBContext {
-
+    
+    public Teachers checkTeacher(String uname,String pass){
+        String sql = "select*from Teachers where username ='"+uname+"' and password='"+pass+"' ";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            //set ?
+            ResultSet rs = st.executeQuery();
+            //1
+            if (rs.next()) {
+                String id=String.valueOf(rs.getInt(1));
+                String name = rs.getString(4);
+                String gender = String.valueOf(rs.getInt(5));
+                String email = rs.getString(6);
+                String phone = rs.getString(7);
+                String address = rs.getString(8);
+                String subject = rs.getString(9);
+                String imgUrl = rs.getString(10);
+                String join_date = rs.getString(11);
+                String city = rs.getString(12);
+                String state = rs.getString(13);
+                String active = String.valueOf(rs.getBoolean(14));
+                
+                return new Teachers(id, uname, pass, name, gender, email, phone, address, subject, imgUrl, join_date, city, state, active);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+    
+    
     public ArrayList<Teachers> getListTeachers(int index) {
         ArrayList<Teachers> data = new ArrayList<>();
         String sql = "select*from Teachers "
@@ -282,6 +312,38 @@ public class TeacherDAO extends DBContext {
             e.printStackTrace();
         }
         return data;
+    }
+
+    public Teachers getTeacherByUsername(String username) {
+String sql = "select * from Teachers where username = '"+username+"' ";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            //set ?
+            //st.setInt(1, Integer.parseInt(id));
+            ResultSet rs = st.executeQuery();
+            //1
+            if (rs.next()) {
+                
+                String id=String.valueOf(rs.getInt(1));
+                String pass = rs.getString(3);
+                String name = rs.getString(4);
+                String gender = String.valueOf(rs.getBoolean(5));
+                String email = rs.getString(6);
+                String phone = rs.getString(7);
+                String address = rs.getString(8);
+                String subject = rs.getString(9);
+                String imgUrl = rs.getString(10);
+                String join_date = String.valueOf(rs.getDate(11));
+                String city = rs.getString(12);
+                String state = rs.getString(13);
+                String active = String.valueOf(rs.getBoolean(14));
+                
+                return new Teachers(id, username, pass, name, gender, email, phone, address, subject, imgUrl, join_date, city, state, active);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
 }

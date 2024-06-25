@@ -28,7 +28,10 @@
         <!-- FAVICONS ICON ============================================= -->
         <link rel="icon" href="../error-404.html" type="image/x-icon" />
         <link rel="shortcut icon" type="image/x-icon" href="assetsAdmin/images/favicon.png" />
-
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- PAGE TITLE HERE ============================================= -->
         <title>EduChamp : Education HTML Template </title>
 
@@ -43,6 +46,7 @@
         <!-- All PLUGINS CSS ============================================= -->
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/assets.css">
         <link rel="stylesheet" type="text/css" href="assetsAdmin/vendors/calendar/fullcalendar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.3/font/bootstrap-icons.min.css">
 
         <!-- TYPOGRAPHY ============================================= -->
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/typography.css">
@@ -329,6 +333,12 @@
                                 <span class="ttr-label">Add listing</span>
                             </a>
                         </li>
+                         <li>
+                            <a href="SkillManager" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+                                <span class="ttr-label">SkillManager</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="staffprofile" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-user"></i></span>
@@ -354,13 +364,13 @@
         <!-- Left sidebar menu end -->
 
         <!--Main container start -->
-        <main class="ttr-wrapper">
+        <main class="ttr-wrapper" style="width:60%">
             <div class="container-fluid">
                 <div class="db-breadcrumb">
-                    <h4 class="breadcrumb-title">My Course</h4>
+                    <h4 class="breadcrumb-title">SkillDetail</h4>
                     <ul class="db-breadcrumb-list">
                         <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-                        <li>My Courses</li>
+                        <li>SkillDetail</li>
                     </ul>
                 </div>	
                 <div class="row">
@@ -368,50 +378,57 @@
                     <!-- Your Profile Views Chart -->
                     <div class="col-lg-12 m-b30">
                         <div class="widget-box">
-                            <div class="wc-title">
-                                <h4>Course</h4>
-                            </div>
+            <div class="container mt-5">
+           <div class="container mt-5">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Certificate</th>
+                    <th scope="col">Teacher Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${data}" var="c">
+                    <tr>
+                        <td>
+                            <a href="#" data-toggle="modal" data-target="#imageModal" data-image="${c.getImage()}">
+                                <img class="img-fluid" style="max-width: 100px; text-align: center" src="${c.getImage()}" alt="image"/>
+                            </a>
+                        </td>
+                        <td>${c.getTname()}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Certificate Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" class="img-fluid" src="" alt="image"/>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                            <div class="widget-inner">
-                                <table style="border: 1">
-                                    <tr>
-                                        <td>OrderID</td>
-                                        <td>CustomerName</td>
-                                        <td>Phone</td>
-                                        <td>Email</td>
-                                        <td>Address</td>
-                                        <td>OrderDate</td>
-                                        <td>Payment</td>
-
-                                    </tr>
-                                  
-                                        <!--inner id, idc, orderdate, total, payment, namec, phone, email, address-->
-<!-- String order_id,customer_id,orderdate,total,payment;
-    String c_name,c_phone,c_email,c_address;-->
-                                        <c:forEach items="${data}" var="c">
-                                              <tr>
-                                            <td>${c.getOrder_id()}</td>
-                                            <td>${c.getC_name()}</td>
-                                            <td>${c.getC_phone()}</td>
-                                            <td>${c.getC_email()}</td>
-                                            <td>${c.getC_address()}</td>
-                                            <td>${c.getOrderdate()}</td>
-                                            <td>${c.getPayment()}</td>
-
-</tr>
-                                        </c:forEach>
-
-                                    
-
-
-                                </table>
-
-                                <c:forEach begin="1" end="${endPage}" var="i">
-                                    <a href="shomepage?pageIndex=${i}" class="btn green radius-xl outline">${i}</a>
-                                </c:forEach>
-
-                            </div>
+    <script>
+        $('#imageModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var imageSrc = button.data('image') // Extract info from data-* attributes
+            var modal = $(this)
+            modal.find('.modal-body #modalImage').attr('src', imageSrc)
+        })
+    </script>
+    </div>
+      
 
                         </div>
                     </div>
@@ -461,3 +478,4 @@
 
     <!-- Mirrored from educhamp.themetrades.com/demo/admin/courses.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:11:35 GMT -->
 </html>
+    
