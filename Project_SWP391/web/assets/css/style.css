@@ -1029,7 +1029,7 @@
 }
 .header-transparent .is-fixed .menu-bar{
 	position:fixed;
-	background-color: #0db14b;
+	background-color:rgba(0,0,0,0.9);
 }
 .header-transparent .top-bar{
 	background-color: rgba(0,0,0,0);
@@ -1972,7 +1972,7 @@ button.back-to-top {
 	display: inline-block;
 	font-size: 13px;
 	text-transform: capitalize;
-	font-family: ;
+	font-family: monospace;
 	margin-right: 5px;
 }
 .media-post li a{

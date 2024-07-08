@@ -174,10 +174,7 @@ public class StaffDAO extends DBContext {
 
     public static void main(String args[]) {
         StaffDAO sd = new StaffDAO();
-//        List<Administrator> l=sd.getAll(1, 2);
-//        for(Administrator x:l){
-//            System.out.println(x.getId());
-//        }
-//       
+        Administrator a=sd.getById(4);
+        System.out.println(a.getRoles_id());
     }
 }

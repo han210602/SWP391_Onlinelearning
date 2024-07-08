@@ -16,21 +16,19 @@ import model.Course;
  *
  * @author admin
  */
-public class CategoryDAO extends DBContext{
-     public ArrayList<Category> getListCategory(){
-        ArrayList<Category>data=new ArrayList<>();
+public class CategoryDAO extends DBContext {
+
+    public ArrayList<Category> getListCategory() {
+        ArrayList<Category> data = new ArrayList<>();
         String sql = "SELECT * from Categories";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                String id=String.valueOf(rs.getInt(1));
-                String name=rs.getString(2);                
-                String description=rs.getString(3);
+                String id = String.valueOf(rs.getInt(1));
+                String name = rs.getString(2);
+                String description = rs.getString(3);
                 data.add(new Category(Integer.parseInt(id), name, description));
-        
-                        
-
 
             }
         } catch (Exception e) {
@@ -38,7 +36,42 @@ public class CategoryDAO extends DBContext{
         }
         return data;
     }
-       //get all category
+
+    public List<Category> getListAllByCourse() {
+        String sql = "  SELECT DISTINCT c.*\n"
+                + "FROM Categories c\n"
+                + "INNER JOIN Courses co ON c.category_id = co.category_id;";
+        List<Category> list = new ArrayList<>();
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                String id = String.valueOf(rs.getInt(1));
+                String name = rs.getString(2);
+                String description = rs.getString(3);
+                list.add(new Category(Integer.parseInt(id), name, description));
+
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        CategoryDAO cd = new CategoryDAO();
+        List<Category> l = cd.getListAllByCourse();
+        for (Category x : l) {
+            System.out.println(x.getId());
+            System.out.println(x.getName());
+            System.out.println(x.getDescription());
+        }
+    }
+    //get all category
+
     public List<Category> getAllCategory() {
         List<Category> list = new ArrayList<>();
         String sql = "SELECT * FROM Categories";
@@ -105,7 +138,7 @@ public class CategoryDAO extends DBContext{
         }
         return null;
     }
-    
+
     //get category by id
     public Category getCategoryByName(String name) {
         String sql = "SELECT * FROM Categories WHERE [category_name] = ?";
