@@ -14,52 +14,61 @@ import model.Order;
  *
  * @author admin
  */
-public class OrderDAO extends DBContext{
-       public ArrayList<Order> getListOrder(int pageIndex,int pageSize){
-        ArrayList<Order>data=new ArrayList<>();
-        String sql = "SELECT [order_id],o.[customer_id],[order_date],[total_amount],[payment] ,c.fullname,c.phone,c.email,c.address\n" +
-"FROM [Orders] o left join Customer c on o.customer_id=c.customer_id\n" +
-"ORDER BY o.order_id OFFSET ? ROWS FETCH NEXT "+pageSize+" ROWS ONLY";
+public class OrderDAO extends DBContext {
+
+    public ArrayList<Order> getListOrder(int pageIndex, int pageSize) {
+        ArrayList<Order> data = new ArrayList<>();
+        String sql = "SELECT [order_id],o.[customer_id],[order_date],[total_amount],[payment] ,c.fullname,c.phone,c.email,c.address\n"
+                + "FROM [Orders] o left join Customer c on o.customer_id=c.customer_id\n"
+                + "ORDER BY o.order_id OFFSET ? ROWS FETCH NEXT " + pageSize + " ROWS ONLY";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, (pageIndex-1)*pageSize);
+            st.setInt(1, (pageIndex - 1) * pageSize);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                String id=String.valueOf(rs.getInt(1));
-                String idc=String.valueOf(rs.getInt(2));                
-                String orderdate=String.valueOf(rs.getDate(3));
-                String total=String.valueOf(rs.getDouble(4));
-                String payment=rs.getString(5);
-                String namec=rs.getString(6);
-                String phone=rs.getString(7);
-                String email=rs.getString(8);
-                String address=rs.getString(9);
+                String id = String.valueOf(rs.getInt(1));
+                String idc = String.valueOf(rs.getInt(2));
+                String orderdate = String.valueOf(rs.getDate(3));
+                String total = String.valueOf(rs.getDouble(4));
+                String payment = rs.getString(5);
+                String namec = rs.getString(6);
+                String phone = rs.getString(7);
+                String email = rs.getString(8);
+                String address = rs.getString(9);
 
-                
-        data.add(new Order(id, idc, orderdate, total, payment, namec, phone, email, address));
-    //  public Order(String order_id, String customer_id, String orderdate, String total, String payment, String c_name, String c_phone, String c_email, String c_address) {
-         }
+                data.add(new Order(id, idc, orderdate, total, payment, namec, phone, email, address));
+                //  public Order(String order_id, String customer_id, String orderdate, String total, String payment, String c_name, String c_phone, String c_email, String c_address) {
+            }
         } catch (Exception e) {
-            System.out.println(e.getMessage());        }
+            System.out.println(e.getMessage());
+        }
         return data;
     }
-       public int getTotalOrder() {
+
+    public int getTotalOrder() {
         String sql = "SELECT count(*) from Orders ";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-              return rs.getInt(1);
-                
-        
-                        
-
+                return rs.getInt(1);
 
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
-        
+
+    }
+
+    public void Payment(String id, String total) {
+        try {
+            String sql = "update Orders set total_amount=" + Double.parseDouble(total) + " ,payment=1 where order_id=" + Integer.parseInt(id) + "";
+            PreparedStatement pstm = connection.prepareCall(sql);
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("loiupateprofile:" + e.getMessage());
+        }
+
     }
 }

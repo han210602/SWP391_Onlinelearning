@@ -146,8 +146,8 @@
 									</li>
 									<li><a href="javascript:;">Contact Us<i class="fa fa-angle-right"></i></a>
 										<ul class="sub-menu">
-											<li><a href="contact-1.html">Contact Us 1</a></li>
-											<li><a href="contact-2.html">Contact Us 2</a></li>
+											<li><a href="staff/add-listing.html">Contact Us 1</a></li>
+											<li><a href="staff/add-listing.html">Contact Us 2</a></li>
 										</ul>
 									</li>
 									<li><a href="portfolio.html">Portfolio</a></li>

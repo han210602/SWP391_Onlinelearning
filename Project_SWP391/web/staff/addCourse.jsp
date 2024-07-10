@@ -261,6 +261,12 @@
                                 <span class="ttr-label">Courses Manager</span>
                             </a>
                         </li>
+                           <li>
+                            <a href="ordermanager?pageIndex=1" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+                                <span class="ttr-label">OrderManager</span>
+                            </a>
+                        </li>
 <!--                        <li>
                             <a href="#" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-email"></i></span>

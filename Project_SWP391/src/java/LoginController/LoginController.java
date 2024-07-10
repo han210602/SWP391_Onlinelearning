@@ -83,7 +83,7 @@ public class LoginController extends HttpServlet {
  
             }
         }else if(c.checkCustomer()!=null){
-            session.setAttribute("username", username);
+         session.setAttribute("username", username);
         session.setAttribute("role", "customer");
         request.getRequestDispatcher("homePage.jsp").forward(request, response);
         }else if(t.checkTeacher(username, password)!=null){

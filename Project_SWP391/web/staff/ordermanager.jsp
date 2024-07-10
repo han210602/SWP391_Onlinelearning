@@ -49,6 +49,7 @@
 
         <!-- SHORTCODES ============================================= -->
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/shortcodes/shortcodes.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
         <!-- STYLESHEETS ============================================= -->
         <link rel="stylesheet" type="text/css" href="assetsAdmin/css/style.css">
@@ -264,6 +265,12 @@
                                 <span class="ttr-label">Courses Manager</span>
                             </a>
                         </li>
+                           <li>
+                            <a href="ordermanager?pageIndex=1" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+                                <span class="ttr-label">OrderManager</span>
+                            </a>
+                        </li>
                         <li>
                             <!--                        <li>
                                                         <a href="teachermanager?pageIndex=1" class="ttr-material-button">
@@ -330,6 +337,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="SkillManager" class="ttr-material-button">
+                                <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+                                <span class="ttr-label">SkillManager</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="staffprofile" class="ttr-material-button">
                                 <span class="ttr-icon"><i class="ti-user"></i></span>
                                 <span class="ttr-label">My Profile</span>
@@ -374,38 +387,49 @@
 
 
                             <div class="widget-inner">
-                                <table style="border: 1">
-                                    <tr>
-                                        <td>OrderID</td>
-                                        <td>CustomerName</td>
-                                        <td>Phone</td>
-                                        <td>Email</td>
-                                        <td>Address</td>
-                                        <td>OrderDate</td>
-                                        <td>Payment</td>
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>OrderID</th>
+                    <th>CustomerName</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>OrderDate</th>
+                    <th>Payment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--inner id, idc, orderdate, total, payment, namec, phone, email, address-->
+                <!-- String order_id,customer_id,orderdate,total,payment;
+                String c_name,c_phone,c_email,c_address;-->
+                <c:forEach items="${data}" var="c">
+                    <tr>
+                        <td><a href="OrderDetail?id=${c.getOrder_id()}">${c.getOrder_id()}</a></td>
+                        <td>${c.getC_name()}</td>
+                        <td>${c.getC_phone()}</td>
+                        <td>${c.getC_email()}</td>
+                        <td>${c.getC_address()}</td>
+                        <td>${c.getOrderdate()}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${c.getPayment() == '1'}">
+                                   <span class="badge badge-success">Paid</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span class="badge badge-danger">Unpaid</span>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
 
-                                    </tr>
-                                  
-                                        <!--inner id, idc, orderdate, total, payment, namec, phone, email, address-->
-<!-- String order_id,customer_id,orderdate,total,payment;
-    String c_name,c_phone,c_email,c_address;-->
-                                        <c:forEach items="${data}" var="c">
-                                              <tr>
-                                            <td>${c.getOrder_id()}</td>
-                                            <td>${c.getC_name()}</td>
-                                            <td>${c.getC_phone()}</td>
-                                            <td>${c.getC_email()}</td>
-                                            <td>${c.getC_address()}</td>
-                                            <td>${c.getOrderdate()}</td>
-                                            <td>${c.getPayment()}</td>
 
-</tr>
-                                        </c:forEach>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-                                    
-
-
-                                </table>
 
                                 <c:forEach begin="1" end="${endPage}" var="i">
                                     <a href="shomepage?pageIndex=${i}" class="btn green radius-xl outline">${i}</a>
